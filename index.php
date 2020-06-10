@@ -89,7 +89,7 @@
 					  		 	   <div class="md-form">
 					  					 <i class="fas fa-signature prefix"></i>
 					  					 <label for="pseudo">Login</label>
-					  					 <input type="text" name="" id="pseudo" class="form-control">
+					  					 <input type="text" name="" id="pseudo" class="form-control" onfocus="focusInput(this.id)"  onfocusout="OutfocusInput(this.id)">
 			  				       </div>
 					  		 </div>
 					   </div>
@@ -99,7 +99,7 @@
 					  		 	   <div class="md-form">
 					  					 <i class="fas fa-key prefix"></i>
 					  					 <label for="pwd">Password</label>
-					  					 <input type="password" name="" id="pwd" class="form-control">
+					  					 <input type="password" name="" id="pwd" class="form-control" onfocus="focusInput(this.id)"  onfocusout="OutfocusInput(this.id)">
 			  				       </div>
 					  		 </div>
 					  		 <div class="col-auto" style="margin-top: 40px;">
@@ -109,7 +109,7 @@
 
 					   <div class="row d-flex justify-content-center">
 					  		 <div class="col-auto">
-					  		 	   <button type="button" class="btn btn-success">Valider</button>
+					  		 	   <button type="button" class="btn btn-dark-green">Connexion</button>
 					  		 </div>
 					   </div>
 			  	</form>
@@ -122,6 +122,25 @@
 		</div>
 		<script type="text/javascript">
 				 
+				 function focusInput(arg) 
+				 {
+				 	let input = document.getElementById(arg)  ;
+				 	input.classList.add("border")			  ;
+				  	input.classList.add("border-success")     ;
+				  	input.classList.add("border-top-0")       ;
+				  	input.classList.add("border-right-0")     ;
+				  	input.classList.add("border-left-0")      ;
+				 }
+
+				 function OutfocusInput(arg) 
+				 {
+				 	let input = document.getElementById(arg)  ;
+				 	input.classList.remove("border")			;
+				  	input.classList.remove("border-success")    ;
+				  	input.classList.remove("border-top-0")      ;
+				  	input.classList.remove("border-right-0")    ;
+				  	input.classList.remove("border-left-0")     ;
+				 }
 
 				 function DisplayMenuOption(arg) 
 				 {
