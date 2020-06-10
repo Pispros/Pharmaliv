@@ -99,7 +99,7 @@
 					  		 	   <div class="md-form">
 					  					 <i class="fas fa-key prefix"></i>
 					  					 <label for="pwd">Password</label>
-					  					 <input type="text" name="" id="pwd" class="form-control">
+					  					 <input type="password" name="" id="pwd" class="form-control">
 			  				       </div>
 					  		 </div>
 					  		 <div class="col-auto" style="margin-top: 40px;">
