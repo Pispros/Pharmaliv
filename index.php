@@ -85,7 +85,7 @@
 			  <div id="signin" style="display: none;">
 			  	<form>
 					   <div class="row d-flex justify-content-center">
-					  		 <div class="col-6">
+					  		 <div class="col-9 col-md-6">
 					  		 	   <div class="md-form">
 					  					 <i class="fas fa-signature prefix"></i>
 					  					 <label for="pseudo">Login</label>
@@ -95,7 +95,7 @@
 					   </div>
 
 					   <div class="row d-flex justify-content-center">
-					  		 <div class="col-6">
+					  		 <div class="col-9 col-md-6">
 					  		 	   <div class="md-form">
 					  					 <i class="fas fa-key prefix"></i>
 					  					 <label for="pwd">Password</label>

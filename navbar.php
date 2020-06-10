@@ -4,7 +4,7 @@
         .brand
         {
           display: flex;
-          justify-content: center;
+          justify-content: flex-start;
           align-items: center;
           font-family: 'Dancing Script', cursive;
           font-size: 40px;
