@@ -12,6 +12,6 @@
         }
 </style>
 <div class="brand alert alert-dark success-color-dark">
-      <img class="rounded-circle" src="./img/phar.png" style="width: 90px;height: 90px;">
-      <div style="margin-left: 15px;">PHARMALIV</div>
+      <img class="rounded-circle" src="./img/phar.png" style="width: 60px;height: 60px;">
+      <div style="margin-left: 15px;"></div>
 </div>

@@ -78,7 +78,7 @@
 			<br>
 			  <div class="row d-flex justify-content-center">
 			  		<div class="col-auto">
-			  			  <img class="rounded-circle" src="img/phar1.png"  style="width: 150px;height: 150px;">
+			  			  <img class="rounded-circle" src="img/phar1.png"  style="width: 180px;height: 180px;">
 			  		</div>
 			  </div>
 
