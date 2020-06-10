@@ -149,6 +149,8 @@
 				  				$("#signup").hide();
 				  				$("#signin_row").fadeIn();
 				  				$("#signin").show(1000);
+				  				$("#signup_row").removeClass("bg-light");
+				  				$("#signin_row").addClass("bg-light");
 				  			})			          				  ;
 
 				  		});
@@ -175,6 +177,8 @@
 				  				$("#signin").hide();
 				  				$("#signup_row").fadeIn();
 				  				$("#signup").show(1000);
+				  				$("#signin_row").removeClass("bg-light");
+				  				$("#signup_row").addClass("bg-light");
 				  			})			          				  ;
 				  		});
 				  	}
