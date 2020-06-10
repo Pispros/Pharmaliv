@@ -95,13 +95,16 @@
 					   </div>
 
 					   <div class="row d-flex justify-content-center">
-					  		 <div class="col-9 col-md-6">
+					  		 <div class="col-9 col-md-6 offset-1">
 					  		 	   <div class="md-form">
 					  					 <i class="fas fa-key prefix"></i>
 					  					 <label for="pwd">Password</label>
 					  					 <input type="text" name="" id="pwd" class="form-control">
 			  				       </div>
 					  		 </div>
+					  		 <div class="col-auto" style="margin-top: 40px;">
+						            <i class="far fa-eye" id="iconshow" onclick="ShowP();"></i>
+						     </div>
 					   </div>
 
 					   <div class="row d-flex justify-content-center">
@@ -176,6 +179,26 @@
 				  		});
 				  	}
 				 } 
+
+				let well        = 0; 
+		   		let showIcon    = document.getElementById('iconshow')   ;
+		   		let showInput   = document.getElementById('pwd')        ;
+
+				function ShowP() 
+	   			{
+	   			 	if (well==0) 
+	   			 	{
+	   			 		well = 1 ;
+	   			 		showInput.type       = 'text'            ;
+	   			 		showIcon.className   = 'far fa-eye-slash';
+	   			 	}
+	   			 	else
+	   			 	{
+	   			 		well = 0 ;
+	   			 		showInput.type       = 'password'  ;
+	   			 		showIcon.className   = 'far fa-eye';
+	   			 	}
+	   			}
 
 				 DisplayMenuOption("Auth");
 		</script>
