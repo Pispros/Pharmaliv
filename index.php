@@ -62,6 +62,10 @@
 				margin-top: 2%;
 			}
 		}
+		.myprefix
+		{
+			color: green !important;
+		}
 	</style>
 </head>
 <body class="bg-light">
@@ -122,26 +126,6 @@
 		</div>
 		<script type="text/javascript">
 				 
-				 function focusInput(arg) 
-				 {
-				 	let input = document.getElementById(arg)  ;
-				 	input.classList.add("border")			  ;
-				  	input.classList.add("border-success")     ;
-				  	input.classList.add("border-top-0")       ;
-				  	input.classList.add("border-right-0")     ;
-				  	input.classList.add("border-left-0")      ;
-				 }
-
-				 function OutfocusInput(arg) 
-				 {
-				 	let input = document.getElementById(arg)  ;
-				 	input.classList.remove("border")			;
-				  	input.classList.remove("border-success")    ;
-				  	input.classList.remove("border-top-0")      ;
-				  	input.classList.remove("border-right-0")    ;
-				  	input.classList.remove("border-left-0")     ;
-				 }
-
 				 function DisplayMenuOption(arg) 
 				 {
 				 	let signin = document.getElementById('signin_row');
@@ -222,6 +206,32 @@
 	   			 		showIcon.className   = 'far fa-eye';
 	   			 	}
 	   			}
+
+	   			function focusInput(arg) 
+				 {
+				 	let input = document.getElementById(arg)  ;
+				 	let inI   = input.parentElement           ;
+				 	input.classList.add("border")			  ;
+				  	input.classList.add("border-success")     ;
+				  	input.classList.add("border-top-0")       ;
+				  	input.classList.add("border-right-0")     ;
+				  	input.classList.add("border-left-0")      ;
+
+				  	inI.querySelector("i").classList.add("myprefix");
+				 }
+
+				 function OutfocusInput(arg) 
+				 {
+				 	let input = document.getElementById(arg)    ;
+				 	let inI   = input.parentElement             ;
+				 	input.classList.remove("border")			;
+				  	input.classList.remove("border-success")    ;
+				  	input.classList.remove("border-top-0")      ;
+				  	input.classList.remove("border-right-0")    ;
+				  	input.classList.remove("border-left-0")     ;
+
+				  	inI.querySelector("i").classList.remove("myprefix");
+				 }
 
 				 DisplayMenuOption("Auth");
 		</script>
