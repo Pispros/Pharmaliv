@@ -137,6 +137,7 @@
 
 			  <div id="signup" style="display: none;">
 			  	<br><br>
+			  	<br>
 			  		<div class="row d-flex justify-content-center align-items-center">
 			  			 <div class="col-auto">
 			  			 	<div class="md-form">
