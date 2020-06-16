@@ -17,8 +17,10 @@
 <body class="bg-light">
 		<?php include 'navbar.php'; ?>
 		<br><br>
-		<div class="row alert alert-light d-flex justify-content-center">
-			
+		<div class="container">
+			  <div class="row alert alert-light d-flex justify-content-center">
+			  		
+			  </div>
 		</div>
 </body>
 </html>
