@@ -102,13 +102,13 @@
 			  </div>
 
 			  <div id="signin" style="display: none;">
-			  	<form>
+			  	<form action="Connect.php?action=connect" method="post">
 					   <div class="row d-flex justify-content-center">
 					  		 <div class="col-5 col-md-5">
 					  		 	   <div class="md-form">
 					  					 <i class="fas fa-signature prefix"></i>
 					  					 <label for="pseudo">Login</label>
-					  					 <input type="text" name="" id="pseudo" class="form-control" onfocus="focusInput(this.id)"  onfocusout="OutfocusInput(this.id)" style="color: black;">
+					  					 <input type="text" name="login" id="pseudo" class="form-control" onfocus="focusInput(this.id)"  onfocusout="OutfocusInput(this.id)" style="color: black;">
 			  				       </div>
 					  		 </div>
 					   </div>
@@ -118,7 +118,7 @@
 					  		 	   <div class="md-form">
 					  					 <i class="fas fa-key prefix"></i>
 					  					 <label for="pwd">Password</label>
-					  					 <input type="password" name="" id="pwd" class="form-control" onfocus="focusInput(this.id)" onfocusout="OutfocusInput(this.id)">
+					  					 <input type="password" name="pwd" id="pwd" class="form-control" onfocus="focusInput(this.id)" onfocusout="OutfocusInput(this.id)">
 			  				       </div>
 					  		 </div>
 					  		 <div class="col-auto" style="margin-top: 40px;">
@@ -138,6 +138,7 @@
 			  <div id="signup" style="display: none;">
 			  	<br><br>
 			  	<br>
+		<form action="Connect.php?action=subscribe" method="post">
 			  		<div class="row d-flex justify-content-center align-items-center">
 			  			 <div class="col-auto">
 			  			 	<div class="md-form">
@@ -154,6 +155,7 @@
 			  			   </div>
 			  		</div>
 			  </div>
+		</form>
 		</div>
 		<script type="text/javascript">
 				 
