@@ -53,6 +53,11 @@
 		{
 			color: #4285F4 !important;
 		}
+		input[type=radio]
+		{
+			width: 15px;
+			height: 15px;
+		}
 	</style>
 </head>
 <body class="bg-light">
@@ -112,7 +117,7 @@
 	   			   			<div class="col-5">
 		   			   			<div class="md-form">
 		   			   				  		<i class="fas fa-calendar-alt prefix"></i>
-		   			   				  		<input id="DatedeNaissance_c" type="text" name="DatedeNaissance_c" class="form-control">
+		   			   				  		<input id="DatedeNaissance_c" type="text" name="DatedeNaissance_c" class="form-control" value="JJ-MM-AAAA">
 		   			   				  		<label for="DatedeNaissance_c">Date de naissance...</label>
 		   			   			</div>
 		   			   		</div>
@@ -127,8 +132,15 @@
 	   			   			<div class="col-5 offset-1">
 	   			   					<div class="md-form">
 	   			   				  		<i class="fas fa-envelope prefix"></i>
-	   			   				  		<input id="mail_c" type="text" name="mail_c" class="form-control">
-	   			   				  		<label for="mail_c">Mail...</label>
+	   			   				  		<input type="text" id="mail_c" class="form-control" value="VOTRE MAIL" disabled>
+	   			   				  		<label for="mail_c">LOGIN (OPTIONNEL)</label>
+	   			   				    </div>
+	   			   			</div>
+	   			   			<div class="col-5">
+	   			   					<div class="md-form">
+	   			   				  		<i class="fas fa-key prefix"></i>
+	   			   				  		<input id="pwd" type="text" name="pwd" class="form-control">
+	   			   				  		<label for="pwd">Password</label>
 	   			   				  </div>
 	   			   			</div>
 	   			   		</div>
@@ -155,16 +167,30 @@
 	   			   				  	</div>
 	   			   			</div>
 	   			   		</div>
+	   			   		<br>
 	   			   		<div class="row d-flex justify-content-start">
 	   			   			<div class="col-5 offset-1">
-	   			   					<div class="md-form">
-	   			   				  		<i class="fas fa-envelope prefix"></i>
-	   			   				  		<input id="infcompl_c" type="text" name="infcompl_c" class="form-control">
-	   			   				  		<label for="infcompl_c">Information Complementaire...</label>
+	   			   				  <h6>Présentez-vous des symptômes d'allergie ?</h6>
+	   			   				  <div style="display: flex;flex-flow: row nowrap;align-items: center;justify-content: flex-start;">
+	   			   				  		<input type="radio" onclick="ShowMore(this)" name="allergie" value="oui" class="form-control"><div>&nbsp;OUI</div>&nbsp;&nbsp;&nbsp;
+	   			   				  		<input type="radio" onclick="ShowMore(this)" name="allergie" value="non" class="form-control"><div>&nbsp;NON</div>
 	   			   				  </div>
+	   			   			</div>
+	   			   			<div class="col-5">
+	   			   					<textarea style="display: none;" id="aler" type="text" name="aler" class="form-control" placeholder="Décrivez un peu vos allergies ..." rows="4"></textarea>
+	   			   			</div>
+	   			   		</div>
+	   			   		<br>
+	   			   		<div class="row d-flex justify-content-start align-items-center">
+	   			   			<div class="col-5 offset-1">
+	   			   					<h6>Information Complementaire</h6>
+	   			   			</div>
+	   			   			<div class="col-5">
+	   			   					<textarea id="infcompl_c" type="text" name="infcompl_c" class="form-control" placeholder="Saississez les traitements en cours si il y'en a ..." rows="4"></textarea>
 	   			   			</div>
 	   			   		</div>
 	   			   </div>
+	   			   <br>
 	   			   <div class="row d-flex justify-content-center">
 	   			   	<div class="col-auto">
 	   			   			<button type="submit" style="display: none;" class="btn aqua-gradient" disabled><i class="fas fa-plus"></i>&nbsp;&nbsp;Inscription</button>
@@ -309,6 +335,28 @@
 	   			   			document.querySelector("button[type=submit]").disabled  = true      ;
 	   			   		}
 	   			   }
+
+	   			   function ShowMore(arg) 
+	   			   {
+	   			   		if (arg.value=='oui') 
+	   			   		{
+	   			   			document.getElementById('aler').style.display = 'inline';
+	   			   		}
+	   			   		else
+	   			   		{
+	   			   			document.getElementById('aler').style.display = 'none'  ;	
+	   			   		}
+	   			   }
+
+	   			   $(function() 
+	   			   {
+	   			   		$("#DatedeNaissance_c").datepicker(
+				  	  	{
+				  	  		dateFormat: 'dd-mm-yy'
+				  	  	});
+	   			   });
 	   </script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </body>	
 </html>
