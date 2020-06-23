@@ -65,7 +65,6 @@
 	   		include 'navbar.php';
 	   ?>
 	   <div class="container alert alert-light width_t">
-	   		<form action="f_subscribe.php" action="post">
 	   			   <div class="row d-flex justify-content-center align-items-center">
 	   			   	<div class="col-auto col-md-6">
 	   			   		<i class="fas fa-user prefix position_t"></i>
@@ -76,13 +75,72 @@
 	   			   		 </select>
 	   			   	</div>
 	   			   </div>
+	   		<form action="f_subscribe.php?for=pharmacie" method="post">
 	   			   <div id="pharmacie_f" style="display: none;">
-	   					 <div class="row d-flex justify-content-center">
-	   			   			<div class="col-auto">
-
+	  					
+	  					<br><br>
+	  					  <div class="row d-flex justify-content-around">
+	   			   			<div class="col-md-5 offset-md-1">
+	   			   				  <div class="md-form">
+	   			   				  		<i class="fas fa-signature prefix"></i>
+	   			   				  		<input id="nom_p" type="text" name="nom_p" class="form-control" required>
+	   			   				  		<label for="nom_p">Nom de la Pharmacie ...</label>
+	   			   				  </div>
 	   			   			</div>
-	   			   		</div>	
+	   			   			<div class="col-md-5">
+	   			   				   <div class="md-form">
+	   			   				  		<i class="far fa-address-book prefix"></i>
+	   			   				  		<input id="nom_g" type="text" name="nom_g" class="form-control" required>
+	   			   				  		<label for="nom_g">Nom du gerant...</label>
+	   			   				  </div>
+	   			   			</div>
+	   			   		 </div>	
+
+	   			   		  <div class="row d-flex justify-content-around">
+	   			   			<div class="col-md-5 offset-md-1">
+	   			   				  <div class="md-form">
+	   			   				  		<i class="fas fa-phone prefix"></i>
+	   			   				  		<input id="telephone_p" type="text" name="telephone_p" class="form-control" required>
+	   			   				  		<label for="telephone_p">Telephone ...</label>
+	   			   				  </div>
+	   			   			</div>
+	   			   			<div class="col-md-5">
+	   			   				  <div class="md-form">
+	   			   				  		<i class="fas fa-location-arrow prefix"></i>
+	   			   				  		<input id="adresse_p" type="text" name="adresse_p" class="form-control" required>
+	   			   				  		<label for="adresse_p">Adresse de la Pharmacie...</label>
+	   			   				  </div>
+	   			   			</div>	
+	   			   		 </div>	
+
+	   			   		  <div class="row d-flex justify-content-around">
+	   			   			<div class="col-md-5 offset-md-1">
+	   			   					<div class="md-form">
+	   			   				  		<i class="fas fa-envelope prefix"></i>
+	   			   				  		<input type="text" id="mail_p" class="form-control" required value="VOTRE MAIL" disabled>
+	   			   				  		<label for="mail_p">LOGIN (OPTIONNEL)</label>
+	   			   				    </div>
+	   			   			</div>
+	   			   			<div class="col-md-5">
+	   			   					<div class="md-form">
+	   			   				  		<i class="fas fa-key prefix"></i>
+	   			   				  		<input id="pwd_p" type="text" name="pwd_p" class="form-control" required>
+	   			   				  		<label for="pwd_p">Mot de Passe</label>
+	   			   				  </div>
+	   			   			</div>
+	   			   		 </div>	
+	   			   		 <br>
+	   			   		 <div class="row d-flex justify-content-center">
+		   			   	 <div class="col-auto">
+		   			   	 		<button type="submit" id="subP" class="btn aqua-gradient" disabled><i class="fas fa-plus"></i>&nbsp;&nbsp;Inscription</button>
+		   			   	 </div>
+		   			    </div>
+
 	   			   </div>
+
+	   		</form>
+
+	   		<form action="f_subscribe.php?for=client" method="post">
 	   			   <div id="client_f" style="display: none;">
 	   			   	<br>
 	   			   		 <div class="row d-flex justify-content-center">
@@ -91,33 +149,33 @@
 			   			   	</div>
 	   			   		 </div>	
 	   			   	    <div class="row d-flex justify-content-between">
-	   			   			<div class="col-5 offset-1">
+	   			   			<div class="col-md-5 offset-md-1">
 	   			   				  <div class="md-form">
 	   			   				  		<i class="fas fa-signature prefix"></i>
-	   			   				  		<input id="nom_c" type="text" name="nom_c" class="form-control">
+	   			   				  		<input id="nom_c" type="text" name="nom_c" class="form-control" required>
 	   			   				  		<label for="nom_c">Nom ...</label>
 	   			   				  </div>
 	   			   			</div>
-	   			   			<div class="col-5">
+	   			   			<div class="col-md-5">
 	   			   				   <div class="md-form">
 	   			   				  		<i class="far fa-address-book prefix"></i>
-	   			   				  		<input id="prenom_c" type="text" name="prenom_c" class="form-control">
+	   			   				  		<input id="prenom_c" type="text" name="prenom_c" class="form-control" required>
 	   			   				  		<label for="prenom_c">Prenoms ...</label>
 	   			   				  </div>
 	   			   			</div>
 	   			   		</div>	
 	   			   		<div class="row d-flex justify-content-between">
-	   			   			<div class="col-5 offset-1">
+	   			   			<div class="col-md-5 offset-md-1">
 	   			   					<div class="md-form">
 	   			   				  		<i class="fas fa-phone prefix"></i>
-	   			   				  		<input id="telephone_c" type="text" name="telephone_c" class="form-control">
+	   			   				  		<input id="telephone_c" type="text" name="telephone_c" class="form-control" required>
 	   			   				  		<label for="telephone_c">Telephone ...</label>
 	   			   				  </div>
 	   			   			</div>
-	   			   			<div class="col-5">
+	   			   			<div class="col-md-5">
 		   			   			<div class="md-form">
 		   			   				  		<i class="fas fa-calendar-alt prefix"></i>
-		   			   				  		<input id="DatedeNaissance_c" type="text" name="DatedeNaissance_c" class="form-control" value="JJ-MM-AAAA">
+		   			   				  		<input id="DatedeNaissance_c" type="text" name="DatedeNaissance_c" class="form-control" required value="JJ-MM-AAAA">
 		   			   				  		<label for="DatedeNaissance_c">Date de naissance...</label>
 		   			   			</div>
 		   			   		</div>
@@ -129,26 +187,26 @@
 			   			   	</div>
 	   			   		 </div>	
 	   			   		<div class="row d-flex justify-content-start">
-	   			   			<div class="col-5 offset-1">
+	   			   			<div class="col-md-5 offset-md-1">
 	   			   					<div class="md-form">
 	   			   				  		<i class="fas fa-envelope prefix"></i>
-	   			   				  		<input type="text" id="mail_c" class="form-control" value="VOTRE MAIL" disabled>
+	   			   				  		<input type="text" id="mail_c" class="form-control" required value="VOTRE MAIL" disabled>
 	   			   				  		<label for="mail_c">LOGIN (OPTIONNEL)</label>
 	   			   				    </div>
 	   			   			</div>
-	   			   			<div class="col-5">
+	   			   			<div class="col-md-5">
 	   			   					<div class="md-form">
 	   			   				  		<i class="fas fa-key prefix"></i>
-	   			   				  		<input id="pwd" type="text" name="pwd" class="form-control">
-	   			   				  		<label for="pwd">Password</label>
+	   			   				  		<input id="pwd" type="text" name="pwd" class="form-control" required>
+	   			   				  		<label for="pwd">Mot de Passe</label>
 	   			   				  </div>
 	   			   			</div>
 	   			   		</div>
 	   			   		<div class="row d-flex justify-content-start">
-	   			   			<div class="col-5 offset-1">
+	   			   			<div class="col-md-5 offset-md-1">
 	   			   					<div class="md-form">
 	   			   				  		<i class="fas fa-transgender prefix position_t" id="sexxxx"></i>
-	   			   				  		<select class="browser-default custom-select" onchange="DisplayF(this.value);" onclick="HHM(this);">
+	   			   				  		<select class="browser-default custom-select" onchange="DisplayF(this.value);" onclick="HHM(this);" name="sexe_c">
 												<option selected>Sexe</option>
 												<option value="homme">HOMME</option>
 												<option value="femme">FEMME</option>
@@ -156,9 +214,9 @@
 					   			   		</select>
 	   			   				  	</div>
 	   			   			</div>
-	   			   			<div class="col-5 offset-1" style="display: none;" id="moree">
+	   			   			<div class="col-md-5 offset-md-1" style="display: none;" id="moree">
 	   			   					<div class="md-form">
-	   			   				  		<select class="browser-default custom-select" onchange="DisplayFi(this.value);">
+	   			   				  		<select class="browser-default custom-select" onchange="DisplayFi(this.value);" name="statut">
 												<option selected>Statut ...</option>
 												<option value="homme">ENCEINTE</option>
 												<option value="femme">ALLAITANT UN BEBE</option>
@@ -169,32 +227,32 @@
 	   			   		</div>
 	   			   		<br>
 	   			   		<div class="row d-flex justify-content-start">
-	   			   			<div class="col-5 offset-1">
+	   			   			<div class="col-md-5 offset-md-1">
 	   			   				  <h6>Présentez-vous des symptômes d'allergie ?</h6>
 	   			   				  <div style="display: flex;flex-flow: row nowrap;align-items: center;justify-content: flex-start;">
-	   			   				  		<input type="radio" onclick="ShowMore(this)" name="allergie" value="oui" class="form-control"><div>&nbsp;OUI</div>&nbsp;&nbsp;&nbsp;
-	   			   				  		<input type="radio" onclick="ShowMore(this)" name="allergie" value="non" class="form-control"><div>&nbsp;NON</div>
+	   			   				  		<input type="radio" onclick="ShowMore(this)" name="allergie" value="oui" class="form-control" required><div>&nbsp;OUI</div>&nbsp;&nbsp;&nbsp;
+	   			   				  		<input type="radio" onclick="ShowMore(this)" name="allergie" value="non" class="form-control" required><div>&nbsp;NON</div>
 	   			   				  </div>
 	   			   			</div>
-	   			   			<div class="col-5">
+	   			   			<div class="col-md-5">
 	   			   					<textarea style="display: none;" id="aler" type="text" name="aler" class="form-control" placeholder="Décrivez un peu vos allergies ..." rows="4"></textarea>
 	   			   			</div>
 	   			   		</div>
 	   			   		<br>
 	   			   		<div class="row d-flex justify-content-start align-items-center">
-	   			   			<div class="col-5 offset-1">
+	   			   			<div class="col-md-5 offset-md-1">
 	   			   					<h6>Information Complementaire</h6>
 	   			   			</div>
-	   			   			<div class="col-5">
-	   			   					<textarea id="infcompl_c" type="text" name="infcompl_c" class="form-control" placeholder="Saississez les traitements en cours si il y'en a ..." rows="4"></textarea>
+	   			   			<div class="col-md-5">
+	   			   					<textarea id="infcompl_c" type="text" name="infcompl_c" class="form-control"  placeholder="Saississez les traitements en cours si il y'en a ..." rows="4"></textarea>
 	   			   			</div>
 	   			   		</div>
-	   			   </div>
-	   			   <br>
-	   			   <div class="row d-flex justify-content-center">
-	   			   	<div class="col-auto">
-	   			   			<button type="submit" style="display: none;" class="btn aqua-gradient" disabled><i class="fas fa-plus"></i>&nbsp;&nbsp;Inscription</button>
-	   			   	</div>
+	   			   		<br>
+	   			   		 <div class="row d-flex justify-content-center">
+		   			   	 <div class="col-auto">
+		   			   	 		<button type="submit" id="client" style="display: none;" class="btn aqua-gradient" disabled><i class="fas fa-plus"></i>&nbsp;&nbsp;Inscription</button>
+		   			   	 </div>
+		   			    </div>
 	   			   </div>
 	   		</form>	
 	   </div>
@@ -205,7 +263,7 @@
 	   				{
 	   					document.getElementById('pharmacie_f').style.display        = 'none'    ;
 	   					document.getElementById('client_f').style.display           = 'inline'  ;
-	   					document.querySelector("button[type=submit]").style.display = 'inline'  ;
+	   					document.getElementById('client').style.display             = 'inline'  ;
 
 	   					let x = document.getElementById('pharmacie_f').querySelectorAll("input");
 
@@ -228,6 +286,7 @@
 		    				document.getElementById('client_f').style.display           = 'none'    ;
 		   					document.getElementById('pharmacie_f').style.display        = 'inline'  ;
 		   					document.querySelector("button[type=submit]").style.display = 'inline'  ;
+		   					document.querySelector("button[type=submit]").disabled      = false     ;
 
 		   					let x = document.getElementById('client_f').querySelectorAll("input")   ;
 
@@ -299,20 +358,20 @@
 				   {
 				   		if (arg==="femme")
 				   		{
-				   			document.getElementById('moree').style.display = 'inline'     ;
-				   			document.querySelector("button[type=submit]").disabled = true ;
+				   			document.getElementById('moree').style.display = 'inline'    ;
+				   			document.getElementById('client').disabled = true 			 ;
 				   		}
 				   		else
 				   		{
 				   			if (arg==="Sexe") 
 				   			{
-				   				document.querySelector("button[type=submit]").disabled = true    ;
-				   				document.getElementById('moree').style.display = 'none'   		 ;
+				   				document.getElementById('client').disabled = true        ;
+				   				document.getElementById('moree').style.display = 'none'  ;
 				   			}
 				   			else
 				   			{
-				   			  	document.querySelector("button[type=submit]").disabled = false   ;
-				   			  	document.getElementById('moree').style.display = 'none'   		 ;
+				   			  	document.getElementById('client').disabled = false       ;
+				   			  	document.getElementById('moree').style.display = 'none'  ;
 				   			}
 				   		}
 				   }
