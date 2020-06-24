@@ -14,6 +14,21 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>
+	<style type="text/css">
+		body
+		{
+			overflow-x: hidden;
+		}
+		.rounded-circle:hover
+		{
+			background-color: #eeeeee;
+			height: 60px;
+			width: 60px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
 </head>
 <body>
 		<div class="container">
@@ -22,49 +37,18 @@
 					  <img class="rounded-circle" style="height: 140px;width: 140px;" src="../img/form.svg">
 				</div>
 			</div>
-			<div class="row d-flex justify-content-around">
-	   			   			<div class="col-md-5 offset-md-1">
-	   			   				  <div class="md-form">
-	   			   				  		<i class="fas fa-capsules prefix"></i>
-	   			   				  		<input id="nom_produit" type="text" name="nom_produit" class="form-control" required>
-	   			   				  		<label for="nom_produit">Nom du Produit ...</label>
-	   			   				  </div>
-	   			   			</div>
-	   			   			<div class="col-md-5">
-	   			   				   <div class="md-form">
-	   			   				  		<i class="fas fa-sort-amount-up prefix"></i>
-	   			   				  		<input id="quantité" type="text" name="quantité" class="form-control" required>
-	   			   				  		<label for="quantité">Quantité</label>
-	   			   				  </div>
-							 </div>
+			<br><br>
+			<div class="row d-flex justify-content-around align-items-center">
+	   			   			<div class="col-auto offset-1 rounded-circle">
+	   			   				    <i class="fas fa-plus fa-3x" style="color: green;cursor: pointer;" title="Ajouter un produit à la commande" onclick="GenerateNewOption();"></i>
+		 			   		</div>
+	   			   			<div class="col-10" id="drugs_div" style="display: flex;flex-flow: column wrap;">
+	   			   			
+							</div>
 			</div>
-			<br>
+			<br><br>
+		<div class="row d-flex justify-content-around">
 			<div class="col-md-5" style="display: flex;flex-flow: row nowrap;align-items:center;">
-	   			   			      <div style="width: 10%;">
-	   			   				  		   <i class="fas fa-mortar-pestle "></i>
-								  </div>
-							       <div style="width: 90%;">
-							            <select name="region" id="" class="browser-default custom-select">
-								             <option selected>Choix de la Pharmacie</option>
-                                             <option value="dakar">Dakar</option>
-                                             <option value="thies">Thies</option>
-                                             <option value="louga">Louga</option>
-                                             <option value="saint-louis">Saint-Louis</option>
-                                             <option value="matam">Matam</option>
-                                             <option value="sedhiou">Sedhiou</option>
-                                             <option value="diourbel">Diourbel</option>
-                                             <option value="fatick">fatick</option>
-                                             <option value="kaolack">kaolack</option>
-                                             <option value="kaffrine">kaffrine</option>
-                                             <option value="Tambacounda">Tambacounda</option>
-                                             <option value="kedougou">kedougou</option>
-                                             <option value="kolda">kolda</option>
-                                             <option value="ziguinchor">ziguinchor</option>
-										 </select>
-									</div>
-							  </div>
-	   		</div>
-	   		<div class="col-md-5" style="display: flex;flex-flow: row nowrap;align-items:center;">
 	   			   				   	<div style="width: 10%;">
 											 <i class="fas fa-city "></i>
 									</div>
@@ -73,46 +57,69 @@
 											 <option selected>Choix de la region</option>
                                              <option value="dakar">Dakar</option>
                                              <option value="thies">Thies</option>
-                                             <option value="louga">Louga</option>
                                              <option value="saint-louis">Saint-Louis</option>
-                                             <option value="matam">Matam</option>
-                                             <option value="sedhiou">Sedhiou</option>
-                                             <option value="diourbel">Diourbel</option>
-                                             <option value="fatick">fatick</option>
-                                             <option value="kaolack">kaolack</option>
-                                             <option value="kaffrine">kaffrine</option>
-                                             <option value="Tambacounda">Tambacounda</option>
-                                             <option value="kedougou">kedougou</option>
-                                             <option value="kolda">kolda</option>
-                                             <option value="ziguinchor">ziguinchor</option>
                                         </select>
 								  </div>
-						    </div>
 			</div>
+			<div class="col-md-5" style="display: flex;flex-flow: row nowrap;align-items:center;">
+	   			   			      <div style="width: 10%;">
+	   			   				  		   <i class="fas fa-mortar-pestle "></i>
+								  </div>
+							       <div style="width: 90%;">
+
+							       	 <div id="drug_store_choice">
+							            <select name="region" id="nom_phar" class="browser-default custom-select">
+								             <option selected>Choix de la Pharmacie</option>
+										 </select>
+									 </div>
+
+									</div>
+							  </div>
+	   		</div>
 			<br>
 		    <div class="row d-flex justify-content-around">
-	   			   			<div class="col-md-5 offset-md-1">
+	   			   			<div class="col-md-5">
 	   			   				  <div class="md-form">
 	   			   				  		<i class="far fa-clock prefix"></i>
 	   			   				  		<input id="choix_d" type="text" name="choix_d" class="form-control" required>
 	   			   				  		<label for="choix_d">Choix Date de Livraison ...</label>
 	   			   				  </div>
 	   			   			</div>
-	   			   			<div class="col-md-5">
-	   			   				   <div class="md-form">
-	   			   				  		<i class="far fa-credit-card prefix"></i>
-	   			   				  		<input id="moyen_p" type="text" name="moyen_p" class="form-control" required>
-	   			   				  		<label for="moyen_p">Moyen de Payement...</label>
-	   			   				  </div>
-							 </div>
 
-							 <br>
-	   			   		 <div class="row d-flex justify-content-center">
-								<div class="col-auto">
-										<button type="submit" id="command"	 class="btn aqua-gradient" disabled><i class="fas fa-plus"></i>&nbsp;&nbsp;Valider Commande</button>
+
+	   			   			<div class="col-md-5"  style="display: flex;flex-flow: row nowrap;align-items:center;">
+	   			   					<div style="width: 10%;">
+										  <i class="far fa-credit-card"></i>
+									</div>
+	   			   				  	<div style="width: 90%;">
+	   			   				  		<select name="region" id="" class="browser-default custom-select" name="payement">
+								             <option selected>Moyen de Payement</option>
+                                             <option value="OM">Orange Money</option>
+                                             <option value="Bank">Carte Bancaire</option>
+                                             <option value="Cash">Cash à la livraison</option>
+										 </select>
+									</div>
+							</div>
+			</div>
+				 <br>
+				 	 	<div class="row d-flex justify-content-center">
+				 	 		<input type="file" id="ord" name="ordonnance" style="display: none;">
+								<div class="col-6" style="display: flex;justify-content: center;">
+									  <label for="ord"><img title="Envoyer votre ordonnance" style="width: 200px;height: 150px;cursor: pointer;" class="rounded-circle" src="./../img/default_photo.png"></label>
+								</div>
+								<div class="col-6" style="display: flex;justify-content:flex-start;align-items: center;">
+									<div>
+									  <button type="button" title="Envoyer votre ordonnance" id="go" class="btn purple-gradient">Envoyer votre Ordonnance</button>
+									</div>
 								</div>
 		   			    </div>
-			</div>
+		   			    <br>
+	   			   		 <div class="row d-flex justify-content-center">
+								<div class="col-auto">
+										<button type="submit" id="command" class="btn aqua-gradient" disabled><i class="fas fa-plus"></i>&nbsp;&nbsp;Valider Commande</button>
+								</div>
+		   			    </div>
+		</div>
 		<form>
 		<!--
 			<div class="row d-flex justify-content-around">
@@ -141,7 +148,59 @@
 				  	  	{
 				  	  		dateFormat: 'dd-mm-yy'
 				  	  	});
+
+				  	  	$("#go").click(function() 
+				  	  	{
+				  	  		$("#ord").trigger("click");
+				  	  	})
 	   			   });
+	  </script>
+	  <script type="text/javascript">
+
+		function GenerateNewOption() 
+		{
+			let drugs_div = document.getElementById('drugs_div');
+
+			let newRow  = document.createElement("div")         ;
+			let newCol1 = document.createElement("div")         ;
+			let newCol2 = document.createElement("div")         ;
+			let newCol3 = document.createElement("div")         ;
+			let input1  = document.createElement("input")       ;
+			let input2  = document.createElement("input")       ;
+			let newI    = document.createElement("i")           ;
+ 		
+ 			newRow.setAttribute("class","row")         ;
+ 			newRow.style.width = '100%'                ;
+
+ 			input1.setAttribute("type","text")         ;
+			input1.setAttribute("class","form-control");
+			input1.setAttribute("placeholder","Entrer le nom du produit");
+			input1.setAttribute("name","nom_produit[]");
+
+			input2.setAttribute("type","number")          ;
+			input2.setAttribute("class","form-control")   ;
+			input2.setAttribute("placeholder","Qté")      ; 
+			input2.setAttribute("name","qte_produit[]")   ;
+
+			newI.setAttribute("class","fas fa-sort-amount-up") ;
+
+			newCol1.setAttribute("class","col-12")         ;
+			newCol1.setAttribute("class","offset-1")      ;
+			newCol2.setAttribute("class","col-1 offset-1");
+			newCol3.setAttribute("class","col-2")         ;
+			
+
+			newCol1.appendChild(input1);
+			newCol2.appendChild(newI);
+			newCol3.appendChild(input2);
+
+			newRow.appendChild(newCol1)  ;
+			newRow.appendChild(newCol2)  ;
+			newRow.appendChild(newCol3)  ;
+
+			drugs_div.appendChild(newRow);
+			drugs_div.appendChild(document.createElement("br"));
+		}
 	   </script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

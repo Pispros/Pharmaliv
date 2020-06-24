@@ -202,11 +202,13 @@
 	   			   				  </div>
 	   			   			</div>
 	   			   		</div>
-	   			   		<div class="row d-flex justify-content-start">
-	   			   			<div class="col-md-5 offset-md-1">
-	   			   					<div class="md-form">
-	   			   				  		<i class="fas fa-transgender prefix position_t" id="sexxxx"></i>
-	   			   				  		<select class="browser-default custom-select" onchange="DisplayF(this.value);" onclick="HHM(this);" name="sexe_c">
+	   			   		<div class="row d-flex justify-content-start" >
+	   			   			<div class="col-md-5 offset-md-1"  style="display: flex;flex-flow: row nowrap;align-items:center;">
+	   			   					<div style="width: 10%;">
+	   			   						  <i class="fas fa-transgender fa-2x" id="sexxxx"></i>
+	   			   					</div>
+	   			   					<div style="width: 90%;">
+	   			   				  		<select class="browser-default custom-select" onchange="DisplayF(this.value);"  name="sexe_c">
 												<option selected>Sexe</option>
 												<option value="homme">HOMME</option>
 												<option value="femme">FEMME</option>
@@ -387,11 +389,11 @@
 	   			   {
 	   			   		if (arg!="Statut ...") 
 	   			   		{
-	   			   			document.querySelector("button[type=submit]").disabled  = false     ;
+	   			   			document.getElementById('client').disabled  = false     ;
 	   			   		}
 	   			   		else
 	   			   		{
-	   			   			document.querySelector("button[type=submit]").disabled  = true      ;
+	   			   			document.getElementById('client').disabled  = true      ;
 	   			   		}
 	   			   }
 

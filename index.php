@@ -104,7 +104,7 @@
 			  <div id="signin" style="display: none;">
 			  	<form action="Connect.php?action=connect" method="post">
 					   <div class="row d-flex justify-content-center">
-					  		 <div class="col-5 col-md-5">
+					  		 <div class="col-8 col-md-5">
 					  		 	   <div class="md-form">
 					  					 <i class="fas fa-signature prefix"></i>
 					  					 <label for="pseudo">Login</label>
@@ -114,7 +114,7 @@
 					   </div>
 
 					   <div class="row d-flex justify-content-center">
-					  		 <div class="col-5 col-md-5 offset-1">
+					  		 <div class="col-8 col-md-5 offset-1">
 					  		 	   <div class="md-form">
 					  					 <i class="fas fa-key prefix"></i>
 					  					 <label for="pwd">Password</label>
@@ -275,9 +275,12 @@
 				Swal.fire({
 				  icon: 'success',
 				  title: 'Votre inscription a été enregistrée avec succès. Vous serez redirigé vers votre Espace.',
-				  showConfirmButton: false,
+				  showConfirmButton: true,
 				  timer: 5000
-						  });
+				}).then((result)=>
+				  {
+				   	  console.log(result.isConfirmed);
+				  });
 				setTimeout(function() {window.location = './Pharmacie/';},5000);
 				localStorage.removeItem('acc');
 			}

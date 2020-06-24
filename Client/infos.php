@@ -24,12 +24,12 @@
 <br>
 <div class="row d-flex justify-content-center">
 	<div class="col-auto">
-			<button type="button" class="btn btn-outline-success rounded-pill">Profil</button>
+			<button type="button" class="btn btn-outline-success rounded-pill" onclick="AlterPage('profil.php')">Profil</button>
 	</div>
 </div>
 <br><br>
 <div class="row d-flex justify-content-center align-items-center">
-	<div class="card-element col-12 alert alert-light elegant-color-dark" style="margin-bottom: 100px;">
+	<div class="card-element col-12 alert alert-light elegant-color-dark" onclick="AlterPage('command.php')" style="margin-bottom: 100px;">
 		  <i class="fas fa-file-invoice-dollar"></i>&nbsp;&nbsp;<h6 style="margin-top: 8px;"><strong>Commander</strong></h6>
 	</div>
 </div>

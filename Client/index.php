@@ -51,8 +51,14 @@
 			   <?php include 'infos.php'; ?>
 		</div>
 		<div class="body-space">
-			  <iframe src="command.php"></iframe>
+			  <iframe id="frame" src="command.php"></iframe>
 		</div>
 	</div>
+	<script type="text/javascript">
+			 function AlterPage(arg) 
+			 {
+			 	document.getElementById('frame').src = arg ;
+			 }
+	</script>
 </body>
 </html>
