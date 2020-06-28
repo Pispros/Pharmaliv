@@ -176,6 +176,7 @@
  			newRow.style.display       = 'flex'        ;
  			newRow.style.flexDirection = 'row'         ;
  			newRow.style.alignItems    = 'center'      ;
+ 			newRow.style.marginBottom  = '15px'        ;
  			//newRow.style.display = 'flex'              ;
 
  			input1.setAttribute("type","text")         ;
@@ -209,16 +210,12 @@
 			newRow.appendChild(newCol2)  ;
 			newRow.appendChild(newCol3)  ;
 			newRow.appendChild(newCol4)  ;
-
 			drugs_div.appendChild(newRow);
-			drugs_div.appendChild(document.createElement("br"));
 		}
 
 		function DeleteCommand(arg) 
 		{
 			arg.parentElement.parentElement.remove();
-			let x = document.getElementById('drugs_div').querySelectorAll("br");
-			x[x.length-1].remove();
 		}
 	   </script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
