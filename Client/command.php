@@ -19,7 +19,7 @@
 		{
 			overflow-x: hidden;
 		}
-		.rounded-circle:hover
+		.add_drugs:hover
 		{
 			background-color: #eeeeee;
 			height: 60px;
@@ -39,7 +39,7 @@
 			</div>
 			<br><br>
 			<div class="row d-flex justify-content-around align-items-center">
-	   			   			<div class="col-auto offset-1 rounded-circle">
+	   			   			<div class="col-auto offset-1 rounded-circle add_drugs">
 	   			   				    <i class="fas fa-plus fa-3x" style="color: green;cursor: pointer;" title="Ajouter un produit à la commande" onclick="GenerateNewOption();"></i>
 		 			   		</div>
 	   			   			<div class="col-10" id="drugs_div" style="display: flex;flex-flow: column wrap;">
@@ -165,12 +165,18 @@
 			let newCol1 = document.createElement("div")         ;
 			let newCol2 = document.createElement("div")         ;
 			let newCol3 = document.createElement("div")         ;
+			let newCol4 = document.createElement("div")         ;
 			let input1  = document.createElement("input")       ;
 			let input2  = document.createElement("input")       ;
 			let newI    = document.createElement("i")           ;
+			let newI2   = document.createElement("i")           ;
  		
  			newRow.setAttribute("class","row")         ;
- 			newRow.style.width = '100%'                ;
+ 			newRow.style.width         = '100%'        ;
+ 			newRow.style.display       = 'flex'        ;
+ 			newRow.style.flexDirection = 'row'         ;
+ 			newRow.style.alignItems    = 'center'      ;
+ 			//newRow.style.display = 'flex'              ;
 
  			input1.setAttribute("type","text")         ;
 			input1.setAttribute("class","form-control");
@@ -182,24 +188,37 @@
 			input2.setAttribute("placeholder","Qté")      ; 
 			input2.setAttribute("name","qte_produit[]")   ;
 
-			newI.setAttribute("class","fas fa-sort-amount-up") ;
+			newI.setAttribute("class","fas fa-sort-amount-up")     ;
+			newI2.setAttribute("class","fas fa-times-circle fa-2x");
+			newI2.setAttribute("onclick","DeleteCommand(this)")    ;
+			newI2.style.cursor = 'pointer'                         ;
+			newI2.style.color  = 'red    '                         ;
 
-			newCol1.setAttribute("class","col-12")         ;
+			newCol1.setAttribute("class","col-12")        ;
 			newCol1.setAttribute("class","offset-1")      ;
 			newCol2.setAttribute("class","col-1 offset-1");
 			newCol3.setAttribute("class","col-2")         ;
+			newCol4.setAttribute("class","col-1")         ;
 			
-
 			newCol1.appendChild(input1);
-			newCol2.appendChild(newI);
+			newCol2.appendChild(newI)  ;
 			newCol3.appendChild(input2);
+			newCol4.appendChild(newI2) ;
 
 			newRow.appendChild(newCol1)  ;
 			newRow.appendChild(newCol2)  ;
 			newRow.appendChild(newCol3)  ;
+			newRow.appendChild(newCol4)  ;
 
 			drugs_div.appendChild(newRow);
 			drugs_div.appendChild(document.createElement("br"));
+		}
+
+		function DeleteCommand(arg) 
+		{
+			arg.parentElement.parentElement.remove();
+			let x = document.getElementById('drugs_div').querySelectorAll("br");
+			x[x.length-1].remove();
 		}
 	   </script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

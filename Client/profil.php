@@ -58,8 +58,9 @@
 	</style>
 </head>
 <body>
+	<div class="container-fluid">
 <form action="f_subscribe.php?for=infpro" method="post">
-	   			   <div id="infpro" style="display: none;">
+	   			   <div id="infpro">
 	   			   	<br>
 	   			   		 <div class="row d-flex justify-content-center">
 			   			   	<div class="col-auto">
@@ -108,6 +109,7 @@
                             </div>
                         </div>
                     </div>
+    </div>
 </form>
 </body>
 </html>
