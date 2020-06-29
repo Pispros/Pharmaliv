@@ -9,6 +9,15 @@
 		font-weight: bold;
 		cursor: pointer;
 	}
+	i:hover
+	{
+		background-color: black;
+		height: 50px;
+		width: 55px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 </style>
 <div class="row d-flex justify-content-center">
 	<div class="col-auto">
@@ -18,7 +27,7 @@
 </div>
 <div class="row d-flex justify-content-center">
 	<div class="col-auto">
-			<strong><h4 style="background-color: yellow;">Princio Vox</h4></strong>
+			<strong><h4 style="background-color: yellow;"><?php echo $_SESSION['nom'].' '.$_SESSION['prenom']; ?></h4></strong>
 	</div>
 </div>
 <br>
@@ -29,8 +38,14 @@
 </div>
 <br><br>
 <div class="row d-flex justify-content-center align-items-center">
-	<div class="card-element col-12 alert alert-light elegant-color-dark" onclick="AlterPage('command.php')" style="margin-bottom: 100px;">
+	<div class="card-element col-12 alert alert-light elegant-color-dark" onclick="AlterPage('command.php')" style="margin-bottom: 15px;">
 		  <i class="fas fa-file-invoice-dollar"></i>&nbsp;&nbsp;<h6 style="margin-top: 8px;"><strong>Commander</strong></h6>
 	</div>
 </div>
+<div class="row d-flex justify-content-center align-items-center" onclick="window.location ='./../?logout=yes'">
+	<div class="card-element col-auto">
+		 <i class="fas fa-power-off fa-2x rounded-circle" style="color: red;"></i>
+	</div>
+</div>
+
 

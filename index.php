@@ -1,3 +1,33 @@
+<?php 
+	session_start();
+
+	if ($_REQUEST['logout']=='yes') 
+	{
+		unset($_SESSION['profffil']);
+		unset($_SESSION['nom'])     ;
+		unset($_SESSION['prenom'])  ;
+		unset($_SESSION['mail'])    ;
+		unset($_SESSION['id_c'])    ;
+		unset($_SESSION['id_p'])    ;		
+	}
+
+	if ($_SESSION['profffil']=='Client') 
+	{
+?>
+		<script type="text/javascript">
+				window.location = './Client/';
+		</script>
+<?php 
+	}
+	if ($_SESSION['profffil']=='Pharmacie') 
+	{
+?>
+		<script type="text/javascript">
+				window.location = './Pharmacie/';
+		</script>
+<?php 
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -128,7 +158,7 @@
 
 					   <div class="row d-flex justify-content-center">
 					  		 <div class="col-auto">
-					  		 	   <button type="button" class="btn btn-dark-green"><i class="fas fa-plug"></i>&nbsp;&nbsp;Connexion</button>
+					  		 	   <button type="submit" class="btn btn-dark-green"><i class="fas fa-plug"></i>&nbsp;&nbsp;Connexion</button>
 					  		 </div>
 					   </div>
 			  	</form>

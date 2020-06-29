@@ -117,7 +117,7 @@
 	   			   			<div class="col-md-5 offset-md-1">
 	   			   					<div class="md-form">
 	   			   				  		<i class="fas fa-envelope prefix"></i>
-	   			   				  		<input type="text" id="mail_p" class="form-control" required value="VOTRE MAIL" disabled>
+	   			   				  		<input type="text" id="mail_p" name="mail_p" class="form-control" required placeholder="VOTRE MAIL" disabled>
 	   			   				  		<label for="mail_p">LOGIN (OPTIONNEL)</label>
 	   			   				    </div>
 	   			   			</div>
@@ -175,7 +175,7 @@
 	   			   			<div class="col-md-5">
 		   			   			<div class="md-form">
 		   			   				  		<i class="fas fa-calendar-alt prefix"></i>
-		   			   				  		<input id="DatedeNaissance_c" type="text" name="DatedeNaissance_c" class="form-control" required value="JJ-MM-AAAA">
+		   			   				  		<input id="DatedeNaissance_c" type="text" name="DatedeNaissance_c" class="form-control" required placeholder="JJ-MM-AAAA">
 		   			   				  		<label for="DatedeNaissance_c">Date de naissance...</label>
 		   			   			</div>
 		   			   		</div>
@@ -190,7 +190,7 @@
 	   			   			<div class="col-md-5 offset-md-1">
 	   			   					<div class="md-form">
 	   			   				  		<i class="fas fa-envelope prefix"></i>
-	   			   				  		<input type="text" id="mail_c" class="form-control" required value="VOTRE MAIL" disabled>
+	   			   				  		<input type="text" id="mail_c" name="mail_c" class="form-control" required placeholder="VOTRE MAIL" disabled>
 	   			   				  		<label for="mail_c">LOGIN (OPTIONNEL)</label>
 	   			   				    </div>
 	   			   			</div>
@@ -410,11 +410,12 @@
 	   			   }
 
 	   			   $(function() 
-	   			   {
+	   			   {/*
 	   			   		$("#DatedeNaissance_c").datepicker(
 				  	  	{
 				  	  		dateFormat: 'dd-mm-yy'
 				  	  	});
+				  	*/
 	   			   });
 	   </script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

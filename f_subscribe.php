@@ -33,7 +33,7 @@
 		$adresse_p = addcslashes($adresse_p, "'");
 		$adresse_p = addcslashes($adresse_p, "?");
 
-		$mail_p = 'vox';
+		$mail_p = $_POST['mail_p'];
 		$mail_p = htmlspecialchars($mail_p);
 		$mail_p = trim($mail_p);
 		$mail_p = stripcslashes($mail_p);
@@ -86,7 +86,7 @@
 		$DatedeNaissance_c = addcslashes($DatedeNaissance_c, "'");
 		$DatedeNaissance_c = addcslashes($DatedeNaissance_c, "?");
 
-		$mail_c = 'vox';
+		$mail_c = $_POST['mail_c'];
 		$mail_c = htmlspecialchars($mail_c);
 		$mail_c = trim($mail_c);
 		$mail_c = stripcslashes($mail_c);

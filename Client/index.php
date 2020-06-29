@@ -1,3 +1,15 @@
+<?php 
+	session_start();
+
+	if ($_SESSION['profffil']!='Client') 
+	{
+?>
+		<script type="text/javascript">
+				  window.location = './../' ;
+		</script>
+<?php 
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +30,7 @@
 			.ninja_info_card
 			{
 				width: 20%;
-				height: 60vh;
+				height: 65vh;
 				margin-left: 20px;
 				background-color: #eeeeee;
 			}
