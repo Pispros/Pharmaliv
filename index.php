@@ -24,10 +24,7 @@
 			</script>
 	<?php 
 		}
-  	}
-	if (isset($_SESSION['profffil'])) 
-	{
-			if ($_SESSION['profffil']=='Pharmacie') 
+		if ($_SESSION['profffil']=='Pharmacie') 
 			{
 		?>
 				<script type="text/javascript">
@@ -35,7 +32,7 @@
 				</script>
 		<?php 
 			}
-	}
+  	}
 ?>
 <!DOCTYPE html>
 <html>

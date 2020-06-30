@@ -240,8 +240,6 @@
 				 correctD = document.getElementById('liste_sl').cloneNode(true);
 			}
 
-			console.log(correctD);
-
 			if (correctD!="") 
 			{
 				let pharSelect = document.getElementById('liste_phar');
