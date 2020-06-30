@@ -1,7 +1,9 @@
 <?php 
-	session_start();
+  session_start();
 
-	if ($_REQUEST['logout']=='yes') 
+  if (isset($_REQUEST['logout'])) 
+  {
+  	if ($_REQUEST['logout']=='yes') 
 	{
 		unset($_SESSION['profffil']);
 		unset($_SESSION['nom'])     ;
@@ -10,22 +12,29 @@
 		unset($_SESSION['id_c'])    ;
 		unset($_SESSION['id_p'])    ;		
 	}
+  }
 
-	if ($_SESSION['profffil']=='Client') 
+  	if (isset($_SESSION['profffil'])) 
+  	{
+  		if ($_SESSION['profffil']=='Client') 
+		{
+	?>
+			<script type="text/javascript">
+					window.location = './Client/';
+			</script>
+	<?php 
+		}
+  	}
+	if (isset($_SESSION['profffil'])) 
 	{
-?>
-		<script type="text/javascript">
-				window.location = './Client/';
-		</script>
-<?php 
-	}
-	if ($_SESSION['profffil']=='Pharmacie') 
-	{
-?>
-		<script type="text/javascript">
-				window.location = './Pharmacie/';
-		</script>
-<?php 
+			if ($_SESSION['profffil']=='Pharmacie') 
+			{
+		?>
+				<script type="text/javascript">
+						window.location = './Pharmacie/';
+				</script>
+		<?php 
+			}
 	}
 ?>
 <!DOCTYPE html>

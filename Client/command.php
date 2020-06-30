@@ -52,6 +52,7 @@
 	   			   			<div class="col-auto offset-1 rounded-circle add_drugs">
 	   			   				    <i class="fas fa-plus fa-3x" style="color: green;cursor: pointer;" title="Ajouter un produit à la commande" onclick="GenerateNewOption();"></i>
 		 			   		</div>
+		 						  <br><br><br><br>
 	   			   			<div class="col-10" id="drugs_div" style="display: flex;flex-flow: column wrap;">
 	   			   			
 							</div>
@@ -71,6 +72,7 @@
                                         </select>
 								  </div>
 			</div>
+			<br><br>
 			<div class="col-md-5" style="display: flex;flex-flow: row nowrap;align-items:center;">
 	   			   			      <div style="width: 10%;">
 	   			   				  		   <i class="fas fa-mortar-pestle "></i>
@@ -195,10 +197,10 @@
 			newI2.style.cursor = 'pointer'                         ;
 			newI2.style.color  = 'red    '                         ;
 
-			newCol1.setAttribute("class","col-12")                 ;
-			newCol1.setAttribute("class","offset-1")               ;
-			newCol2.setAttribute("class","col-1 offset-1")         ;
-			newCol3.setAttribute("class","col-2")                  ;
+			newCol1.setAttribute("class","col-md-6 col-lg-12")     ;
+			newCol1.setAttribute("class","offset-0 offset-lg-1")   ;
+			newCol2.setAttribute("class","col-1 offset-lg-1")      ;
+			newCol3.setAttribute("class","col-3 col-lg-2")      ;
 			newCol4.setAttribute("class","col-1")                  ;
 			
 			newCol1.appendChild(input1)                             ;

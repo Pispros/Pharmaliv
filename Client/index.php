@@ -30,8 +30,8 @@
 			.ninja_info_card
 			{
 				width: 20%;
-				height: 65vh;
-				margin-left: 20px;
+				height: 67vh;
+				margin-left: 5px;
 				background-color: #eeeeee;
 			}
 
