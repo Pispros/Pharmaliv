@@ -1,3 +1,6 @@
+<?php 
+	include '../bd.php';
+?>
 <style type="text/css">
 	.card-element
 	{
@@ -38,8 +41,8 @@
 </div>
 <br><br>
 <div class="row d-flex justify-content-center align-items-center">
-	<div class="card-element col-12 alert alert-light elegant-color-dark" onclick="AlterPage('command.php')" style="margin-bottom: 15px;">
-		  <i class="fas fa-file-invoice-dollar"></i>&nbsp;&nbsp;<h6 style="margin-top: 8px;"><strong>Commander</strong></h6>
+	<div class="card-element col-12 alert alert-light elegant-color-dark" onclick="AlterPage('ListeCommande.php')" style="margin-bottom: 15px;">
+		  <i class="fas fa-box"></i>&nbsp;&nbsp;<h6 style="margin-top: 8px;"><strong>Liste des Commandes</strong></h6>
 	</div>
 </div>
 <div class="row d-flex justify-content-center align-items-center" onclick="window.location ='./../?logout=yes'">

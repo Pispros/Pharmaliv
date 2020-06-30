@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 29 Juin 2020 à 17:37
+-- Généré le :  Mar 30 Juin 2020 à 17:36
 -- Version du serveur :  5.7.29-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.33-0ubuntu0.16.04.14
 
@@ -32,24 +32,50 @@ CREATE TABLE `commandes` (
   `nom_produit` varchar(255) NOT NULL,
   `quantité_produit` int(11) NOT NULL,
   `region` varchar(100) NOT NULL,
-  `nom_pharmacie` varchar(150) NOT NULL,
+  `ID_pharmacie` int(11) NOT NULL,
   `choix_date` varchar(25) NOT NULL,
   `date_commande` varchar(50) NOT NULL,
   `payement` varchar(50) NOT NULL,
-  `photo_ordonnance` varchar(255) NOT NULL
+  `photo_ordonnance` varchar(255) NOT NULL,
+  `zone_livraison` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `commandes`
 --
 
-INSERT INTO `commandes` (`ID`, `ID_client`, `nom_produit`, `quantité_produit`, `region`, `nom_pharmacie`, `choix_date`, `date_commande`, `payement`, `photo_ordonnance`) VALUES
-(1, 0, 'Mouton_mÃ©chant', 1, 'dakar', 'TERANGA', '29-06-2020', '', 'OM', '274309421012201.jpg'),
-(2, 0, 'Tramadol', 4, 'dakar', 'TERANGA', '29-06-2020', '', 'OM', '274309421012201.jpg'),
-(3, 4, 'Mouton_mÃ©chant', 1, 'dakar', 'TERANGA', '30-06-2020', '', 'OM', '274309421012201.jpg'),
-(4, 4, 'Mouton_mÃ©chant', 1, 'dakar', 'GUEDIAWAYE', '30-06-2020,', '29-06-2020 05:26:34', 'OM', '274309864008201.jpg'),
-(5, 4, 'Mouton_mÃ©chant', 1, 'dakar', 'GUEDIAWAYE', '01-07-2020,', '29-06-2020 05:27:28', 'OM', 'Capture du 2019-08-20 20-39-01.png'),
-(6, 4, 'Mouton_mÃ©chant', 1, 'dakar', 'ROLLAND', '30-06-2020,', '29-06-2020 05:33:18', 'Bank', 'Capture du 2019-08-19 16-23-56.png');
+INSERT INTO `commandes` (`ID`, `ID_client`, `nom_produit`, `quantité_produit`, `region`, `ID_pharmacie`, `choix_date`, `date_commande`, `payement`, `photo_ordonnance`, `zone_livraison`) VALUES
+(8, 4, 'Mouton_mÃ©chant', 1, 'thies', 10, '30-06-2020', '30-06-2020 03:13:50', 'OM', 'Capture du 2019-08-19 16-23-56.png', 'C');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `livreur`
+--
+
+CREATE TABLE `livreur` (
+  `ID` int(11) NOT NULL,
+  `login` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `tel` varchar(50) NOT NULL,
+  `zone_livraison` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `pending_commands`
+--
+
+CREATE TABLE `pending_commands` (
+  `ID` int(11) NOT NULL,
+  `ID_pharmacie` int(11) NOT NULL,
+  `ID_client` int(11) NOT NULL,
+  `Zone_livraison` varchar(255) NOT NULL,
+  `nom_produit` varchar(255) NOT NULL,
+  `qte` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -127,6 +153,18 @@ ALTER TABLE `commandes`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Index pour la table `livreur`
+--
+ALTER TABLE `livreur`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Index pour la table `pending_commands`
+--
+ALTER TABLE `pending_commands`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Index pour la table `pharmacie`
 --
 ALTER TABLE `pharmacie`
@@ -147,7 +185,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `commandes`
 --
 ALTER TABLE `commandes`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT pour la table `livreur`
+--
+ALTER TABLE `livreur`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `pending_commands`
+--
+ALTER TABLE `pending_commands`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `pharmacie`
 --

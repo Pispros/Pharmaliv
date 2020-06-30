@@ -30,6 +30,13 @@
 		$payement = addcslashes($payement, "'");
 		$payement = addcslashes($payement, "?");
 
+		$zonel = $_POST['zonel'];
+		$zonel = htmlspecialchars($zonel);
+		$zonel = trim($zonel);
+		$zonel = stripcslashes($zonel);
+		$zonel = addcslashes($zonel, "'");
+		$zonel = addcslashes($zonel, "?");
+
 		$nom_produit = $_POST['nom_produit'];
 		$qte_produit = $_POST['qte_produit'];
 
@@ -52,7 +59,7 @@
 			$qte_produit[$i] = addcslashes($qte_produit[$i], "'");
 			$qte_produit[$i] = addcslashes($qte_produit[$i], "?");
 
-			$pdo->query("INSERT INTO commandes VALUES (0,'".$_SESSION['id_c']."','".$nom_produit[$i]."','".$qte_produit[$i]."','".$region."','".$nom_phar."','".$choix_date.",','".date("d-m-Y h:i:s")."','".$payement."','".$filename."')");
+			$pdo->query("INSERT INTO commandes VALUES (0,'".$_SESSION['id_c']."','".$nom_produit[$i]."','".$qte_produit[$i]."','".$region."','".$nom_phar."','".$choix_date.",','".date("d-m-Y h:i:s")."','".$payement."','".$filename."','".$zonel."')");
 		}
 		
 ?>

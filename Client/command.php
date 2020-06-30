@@ -2,7 +2,7 @@
 	include '../bd.php';
 
 	$region[0]= "";
-	$query    = $pdo->query("SELECT region,nom_pharm FROM pharmacie");
+	$query    = $pdo->query("SELECT region,nom_pharm,ID FROM pharmacie");
 	$rows     = $query->fetchAll(PDO::FETCH_NUM) ;
 
 ?>
@@ -126,6 +126,19 @@
 									<div id="ord_name" style="background-color: yellow;font-weight: bold;font-size: 22px;">
 									  
 									</div>
+								</div>
+		   			    </div>
+		   			    <br>
+		   			    <div class="row d-flex justify-content-center">
+								<div class="col-4">
+										<select id="zonel" class="browser-default custom-select" name="zonel">
+								             <option selected>Zone de Livraison</option>
+                                             <option value="A">Zone A</option>
+                                             <option value="B">Zone B</option>
+                                             <option value="C">Zone C</option>
+                                             <option value="D">Zone D</option>
+                                             <option value="E">Zone E</option>
+										 </select>
 								</div>
 		   			    </div>
 		   			    <br>
@@ -284,7 +297,7 @@
 
 		function Go() 
 		{
-			if (document.getElementById('liste_phar').value!="Choix de la Pharmacie" && document.getElementById('payement').value!="Moyen de Payement" && pass2 === 1 && pass3 === 1) 
+			if (document.getElementById('liste_phar').value!="Choix de la Pharmacie" && document.getElementById('payement').value!="Moyen de Payement" && document.getElementById('zonel').value!="Zone de Livraison" && pass2 === 1 && pass3 === 1) 
 			{
 				document.getElementById('command').disabled = false ;
 			}
@@ -329,7 +342,7 @@
   				if ($row[0]=='dakar') 
   				{
   		?>
-  				   <option value="<?php echo $row[1]; ?>"><?php echo $row[1]; ?></option>
+  				   <option value="<?php echo $row[2]; ?>"><?php echo $row[1]; ?></option>
   		<?php 
   				}
   			}
@@ -344,7 +357,7 @@
   				if ($row[0]=='thies') 
   				{
   		?>
-  				   <option value="<?php echo $row[1]; ?>"><?php echo $row[1]; ?></option>
+  				   <option value="<?php echo $row[2]; ?>"><?php echo $row[1]; ?></option>
   		<?php 
   				}
   			}
@@ -359,7 +372,7 @@
   				if ($row[0]=='sl') 
   				{
   		?>
-  				   <option value="<?php echo $row[1]; ?>"><?php echo $row[1]; ?></option>
+  				   <option value="<?php echo $row[2]; ?>"><?php echo $row[1]; ?></option>
   		<?php 
   				}
   			}
