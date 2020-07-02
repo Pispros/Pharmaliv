@@ -45,22 +45,27 @@
 
 		date_default_timezone_set('Africa/Dakar');
 
+		$liste_produit = "";
+		$liste_qte     = 0 ;
 		for ($i=0; $i < count($nom_produit); $i++) 
 		{ 
-			$nom_produit[$i] = htmlspecialchars($nom_produit[$i]);
-			$nom_produit[$i] = trim($nom_produit[$i]);
-			$nom_produit[$i] = stripcslashes($nom_produit[$i]);
-			$nom_produit[$i] = addcslashes($nom_produit[$i], "'");
-			$nom_produit[$i] = addcslashes($nom_produit[$i], "?");
+			$nom_produit[$i] = htmlspecialchars($nom_produit[$i])  ;
+			$nom_produit[$i] = trim($nom_produit[$i])              ;
+			$nom_produit[$i] = stripcslashes($nom_produit[$i])     ;
+			$nom_produit[$i] = addcslashes($nom_produit[$i], "'")  ;
+			$nom_produit[$i] = addcslashes($nom_produit[$i], "?")  ;
 
-			$qte_produit[$i] = htmlspecialchars($qte_produit[$i]);
-			$qte_produit[$i] = trim($qte_produit[$i]);
-			$qte_produit[$i] = stripcslashes($qte_produit[$i]);
-			$qte_produit[$i] = addcslashes($qte_produit[$i], "'");
-			$qte_produit[$i] = addcslashes($qte_produit[$i], "?");
+			$qte_produit[$i] = htmlspecialchars($qte_produit[$i])  ;
+			$qte_produit[$i] = trim($qte_produit[$i])              ;
+			$qte_produit[$i] = stripcslashes($qte_produit[$i])     ;
+			$qte_produit[$i] = addcslashes($qte_produit[$i], "'")  ;
+			$qte_produit[$i] = addcslashes($qte_produit[$i], "?")  ;
 
-			$pdo->query("INSERT INTO commandes VALUES (0,'".$_SESSION['id_c']."','".$nom_produit[$i]."','".$qte_produit[$i]."','".$region."','".$nom_phar."','".$choix_date.",','".date("d-m-Y h:i:s")."','".$payement."','".$filename."','".$zonel."')");
+			$liste_produit   = $liste_produit.$nom_produit[$i].',' ;
+			$liste_qte       = $liste_qte.$qte_produit[$i].','     ;
 		}
+
+$pdo->query("INSERT INTO commandes VALUES (0,'".$_SESSION['id_c']."','".$liste_produit."','".$liste_qte."','".$region."','".$nom_phar."','".$choix_date.",','".date("d-m-Y h:i:s")."','".$payement."','".$filename."','".$zonel."')");
 		
 ?>
 <!DOCTYPE html>

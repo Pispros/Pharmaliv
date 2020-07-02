@@ -71,7 +71,8 @@
 	   			   	      <select class="browser-default custom-select" onchange="ShowF(this.value);" onclick="HHM(this);">
 								<option selected>Profil</option>
 								<option value="client">Client</option>
-								<option value="pharmacie">Pharmacie</option>					
+								<option value="pharmacie">Pharmacie</option>
+								<option value="pharmacie">Livreur</option>					
 	   			   		 </select>
 	   			   	</div>
 	   			   </div>
@@ -259,6 +260,7 @@
 	   		</form>	
 	   </div>
 	   <script type="text/javascript">
+
 	   			function ShowF(profil) 
 	   			{
 	   				if (profil==='client') 

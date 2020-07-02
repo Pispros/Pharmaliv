@@ -331,5 +331,16 @@
 				setTimeout(function() {window.location = './Client/';},5000);
 				localStorage.removeItem('acc');
 			}
+
+			if (localStorage.getItem('error_infos')==='false_login') 
+			{
+				Swal.fire({
+				  icon: 'error',
+				  title: "Echec d'Authentification, Login ou Password Incorrect",
+				  showConfirmButton: true,
+				  timer: 5000
+						  });
+				localStorage.removeItem('error_infos');
+			}
 		</script>
 </html>

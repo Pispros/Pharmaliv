@@ -41,6 +41,15 @@
 				</script>
 <?php 
 			}
+			else
+			{
+?>
+				<script type="text/javascript">
+							localStorage.setItem("error_infos","false_login") 
+							window.location = './'
+				</script>
+<?php 
+			}
 		}
 		else
 		{
@@ -71,7 +80,7 @@
 				{
 	?>
 					<script type="text/javascript">
-							 alert("Login ou Password incorrect. Ou vous n'avez pas de compte !?");
+							 localStorage.setItem("error_infos","false_login") 
 							 window.location = './'
 					</script>
 	<?php  
@@ -79,13 +88,40 @@
 			}
 			else
 			{
-?>
-				<script type="text/javascript">
-					 alert("Login ou Password incorrect. Ou vous n'avez pas de compte !?");
-					 window.location = './'
-				</script>
-<?php  
-			}
+				$query = $pdo->query("SELECT * FROM livreur WHERE login='".$login."'");
+				$nrow  = $query->rowCount();
+
+				if ($nrow>0) 
+				{
+					$rows = $query->fetchAll(PDO::FETCH_NUM);
+
+					$password_hash = $rows[0][2];	
+
+					$verifyP = password_verify($pwd, $password_hash);
+
+					if ($verifyP == 1) 
+					{
+						$_SESSION['profffil'] = 'Livreur' ;
+						$_SESSION['id_l']     = $rows[0][0];
+						$_SESSION['nom']      = $rows[0][3];
+						$_SESSION['prenom']   = $rows[0][4];
+						$_SESSION['mail']     = $rows[0][1];
+		?>
+						<script type="text/javascript">
+								 window.location = './Livreur/' ;
+						</script>
+		<?php 
+					}
+					else
+					{
+		?>
+						<script type="text/javascript">
+								 localStorage.setItem("error_infos","false_login") 
+								 window.location = './'
+						</script>
+		<?php  
+				}	}
+			}			
 		}
 	}
 	else

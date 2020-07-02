@@ -1,10 +1,11 @@
 <?php 
-	include '../bd.php';
+	include '../bd.php';	
 ?>
 <style type="text/css">
 	.card-element
 	{
 		display: flex;
+		flex-flow: row nowrap;
 		justify-content: center;
 		align-items: center;
 		height: 50px;
@@ -25,7 +26,7 @@
 <div class="row d-flex justify-content-center">
 	<div class="col-auto">
 			<input type="file" name="" id="profil" style="display: none;">
-			<label for="profil"><img class="rounded-circle" src="../img/medecine.svg" style="height: 130px;width: 130px;"></label>
+			<label for="profil"><img class="rounded-circle" src="../img/1.svg" style="height: 130px;width: 130px;"></label>
 	</div>
 </div>
 <div class="row d-flex justify-content-center">
@@ -42,7 +43,8 @@
 <br><br>
 <div class="row d-flex justify-content-center align-items-center">
 	<div class="card-element col-12 alert alert-light elegant-color-dark" onclick="AlterPage('ListeCommande.php')" style="margin-bottom: 15px;">
-		  <i class="fas fa-box"></i>&nbsp;&nbsp;<h6 style="margin-top: 8px;"><strong>Liste des Commandes</strong></h6>
+		  <i class="fas fa-box"></i>&nbsp;&nbsp;
+		  <h6 style="margin-top: 8px;"><strong>Liste des Commandes</strong></h6>
 	</div>
 </div>
 <div class="row d-flex justify-content-center align-items-center" onclick="window.location ='./../?logout=yes'">
