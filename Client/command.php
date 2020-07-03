@@ -94,7 +94,7 @@
 	   			   				  <div class="md-form">
 	   			   				  		<i class="far fa-clock prefix"></i>
 	   			   				  		<input id="choix_d" type="text" placeholder="JJ-MM-AAAA" name="choix_date" class="form-control" required autocomplete="off">
-	   			   				  		<label for="choix_d">Choix Date de Livraison ...</label>
+	   			   				  		<label for="choix_d">Choix Date de Limite de Livraison ...</label>
 	   			   				  </div>
 	   			   			</div>
 

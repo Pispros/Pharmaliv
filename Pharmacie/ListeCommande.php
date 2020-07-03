@@ -2,11 +2,11 @@
 	session_start() ;
 	include '../bd.php';
 
-	$query    = $pdo->query("SELECT ID,ID_client,nom_produit,quantite_produit,zone_livraison,date_commande FROM commandes WHERE ID_pharmacie='".$_SESSION['id_p']."' ORDER BY ID ASC") ;
+	$query    = $pdo->query("SELECT ID,ID_client,nom_produit,quantite_produit,zone_livraison,date_commande,date_livraison FROM commandes WHERE ID_pharmacie='".$_SESSION['id_p']."' ORDER BY ID ASC") ;
 	$rows_new = $query->fetchAll(PDO::FETCH_NUM);
   $notif = $query->rowCount();
 
-	$query = $pdo->query("SELECT ID,ID_client,nom_produit,quantite_produit,zone_livraison,date_commande,ID_livreur FROM pending_commands WHERE ID_pharmacie='".$_SESSION['id_p']."' AND status=1 ORDER BY ID DESC") ;
+	$query = $pdo->query("SELECT ID,ID_client,nom_produit,quantite_produit,zone_livraison,date_commande,ID_livreur,date_livraison FROM pending_commands WHERE ID_pharmacie='".$_SESSION['id_p']."' AND status=1 ORDER BY ID DESC") ;
 	$rows_com = $query->fetchAll(PDO::FETCH_NUM);
 ?>
 <!DOCTYPE html>
@@ -116,7 +116,7 @@
 
                             $liste_commande = explode(',', $row[2]);
                       ?>
-                            <tr data-toggle="modal" data-target="#basicExampleModal" id="<?php echo $row[0]; ?>" nom="<?php echo $rowc[0][0]; ?>" prenom="<?php echo $rowc[0][1]; ?>" tel="<?php echo $rowc[0][2]; ?>" commandes="<?php echo $row[2]; ?>" quantites="<?php echo $row[3]; ?>" zone="<?php echo $row[4]; ?>" id_p="<?php echo $_SESSION['id_p']; ?>" id_c="<?php echo $row[1]; ?>" date_c="<?php echo $row[5]; ?>" onclick="DisplayInfos(this,'magicalModal')">
+                            <tr data-toggle="modal" data-target="#basicExampleModal" id="<?php echo $row[0]; ?>" nom="<?php echo $rowc[0][0]; ?>" prenom="<?php echo $rowc[0][1]; ?>" tel="<?php echo $rowc[0][2]; ?>" commandes="<?php echo $row[2]; ?>" quantites="<?php echo $row[3]; ?>" zone="<?php echo $row[4]; ?>" id_p="<?php echo $_SESSION['id_p']; ?>" id_c="<?php echo $row[1]; ?>" date_c="<?php echo $row[5]; ?>" dateL="<?php echo $row[6]; ?>" onclick="DisplayInfos(this,'magicalModal')">
                                  <td>
                                       <center style="margin-top:15px;"><?php echo $count; ?></center>
                                  </td>
@@ -182,7 +182,7 @@
 
                             $liste_commande = explode(',', $row[2]);
                       ?>
-                            <tr data-toggle="modal" data-target="#basicExampleModal" nom="<?php echo $rowc[0][0]; ?>" prenom="<?php echo $rowc[0][1]; ?>" commandes="<?php echo $row[2]; ?>" tel="<?php echo $rowc[0][2]; ?>" quantites="<?php echo $row[3]; ?>" zone="<?php echo $row[4]; ?>" id_p="<?php echo $_SESSION['id_p']; ?>" id_c="<?php echo $row[1]; ?>" date_c="<?php echo $row[5]; ?>" livreur="<?php echo $rowl[0][0].' '.$rowl[0][1]; ?>" numL="<?php echo $rowl[0][2]; ?>" onclick="DisplayInfos(this,'JustShow')">
+                            <tr data-toggle="modal" data-target="#basicExampleModal" nom="<?php echo $rowc[0][0]; ?>" prenom="<?php echo $rowc[0][1]; ?>" commandes="<?php echo $row[2]; ?>" tel="<?php echo $rowc[0][2]; ?>" quantites="<?php echo $row[3]; ?>" zone="<?php echo $row[4]; ?>" id_p="<?php echo $_SESSION['id_p']; ?>" id_c="<?php echo $row[1]; ?>" date_c="<?php echo $row[5]; ?>" livreur="<?php echo $rowl[0][0].' '.$rowl[0][1]; ?>" numL="<?php echo $rowl[0][2]; ?>" dateL="<?php echo $row[7]; ?>" onclick="DisplayInfos(this,'JustShow')">
                                  <td>
                                       <center style="margin-top:15px;"><?php echo $count; ?></center>
                                  </td>
@@ -232,13 +232,14 @@
     	</div>
       </div>
       <div class="modal-footer">
-        <input type="hidden" name="id_p"       id="id_p"  >
-        <input type="hidden" name="id_c"       id="id_c"  >
-        <input type="hidden" name="zonel"      id="zonel" >
-        <input type="hidden" name="nom_p"      id="nom_p" >
-        <input type="hidden" name="qte_p"      id="qte_p" >
-        <input type="hidden" name="date_c"     id="date_c">
-        <input type="hidden" name="id_command" id="id_com">
+        <input type="hidden" name="id_p"       id="id_p"    >
+        <input type="hidden" name="id_c"       id="id_c"    >
+        <input type="hidden" name="zonel"      id="zonel"   >
+        <input type="hidden" name="nom_p"      id="nom_p"   >
+        <input type="hidden" name="qte_p"      id="qte_p"   >
+        <input type="hidden" name="date_c"     id="date_c"  >
+        <input type="hidden" name="id_command" id="id_com"  >
+        <input type="hidden" name="date_liv"   id="date_liv">
         <button type="button" class="btn btn-success" data-dismiss="modal">FERMER</button>
         <button  type="submit" class="btn blue-gradient" id="new_btn">Commissionner un Livreur</button>
       </div>
@@ -334,7 +335,18 @@
 
                   document.getElementById('noms').innerHTML       = nom+' '+prenom    ;
                   document.getElementById('telephoneC').innerHTML = 'Téléphone : '+tel;
-                  for (let i =0 ; i <= commandes.length-1; i++) 
+
+                  newP    = document.createElement("p");
+                  content = document.createTextNode("Date Limite Livraison : "+arg.getAttribute('dateL'));
+                  newP.appendChild(content);
+                  document.getElementById('telephoneC').appendChild(newP);
+
+                  newP    = document.createElement("p");
+                  content = document.createTextNode("-----------------------------");
+                  newP.appendChild(content);
+                  document.getElementById('telephoneC').appendChild(newP);
+
+                  for (let i =0 ; i <= commandes.length; i++) 
                   {
                     if (commandes[i]!="," && commandes[i]!=undefined && commandes[i]!="") 
                     {
@@ -348,13 +360,14 @@
 
                 document.getElementById('zone_livraison').innerHTML = "Zone Livraison : "+arg.getAttribute("zone");
 
-                document.getElementById('id_p').value   = arg.getAttribute('id_p')     ;
-                document.getElementById('id_c').value   = arg.getAttribute('id_c')     ;
-                document.getElementById('zonel').value  = arg.getAttribute('zone')     ;
-                document.getElementById('nom_p').value  = arg.getAttribute('commandes');
-                document.getElementById('qte_p').value  = arg.getAttribute('quantites');
-                document.getElementById('date_c').value = arg.getAttribute('date_c')   ;
-                document.getElementById('id_com').value = arg.id                       ;
+                document.getElementById('id_p').value     = arg.getAttribute('id_p')     ;
+                document.getElementById('id_c').value     = arg.getAttribute('id_c')     ;
+                document.getElementById('zonel').value    = arg.getAttribute('zone')     ;
+                document.getElementById('nom_p').value    = arg.getAttribute('commandes');
+                document.getElementById('qte_p').value    = arg.getAttribute('quantites');
+                document.getElementById('date_c').value   = arg.getAttribute('date_c')   ;
+                document.getElementById('id_com').value   = arg.id                       ;
+                document.getElementById('date_liv').value = arg.getAttribute('dateL')    ;
 
                 if (magicalModal==="JustShow") 
                 {

@@ -188,7 +188,7 @@
                         $query = $pdo->query("SELECT nom_pharm,nom_gerant,tel FROM pharmacie WHERE ID='".$row[2]."'");
                         $rowp  = $query->fetchAll(PDO::FETCH_NUM);
 	 		  ?>
-	 		  			<div class="_job alert alert-light <?php echo $tab_colors[$job_color]; ?> hoverable" data-toggle="modal" data-target="#basicExampleModal" infos_c="<?php echo $rowc[0][0].' '.$rowc[0][1].' - '.$rowc[0][2]; ?>" infos_p="<?php echo $rowp[0][0].' - '.$rowp[0][2]; ?>" gerant="<?php echo $rowp[0][1]; ?>" commandes="<?php echo $row[5]; ?>" quantites="<?php echo $row[6]; ?>" id_comm="<?php echo $row[0]; ?>" onclick="DisplayInfos(this);">
+	 		  			<div class="_job alert alert-light <?php echo $tab_colors[$job_color]; ?> hoverable" data-toggle="modal" data-target="#basicExampleModal" infos_c="<?php echo $rowc[0][0].' '.$rowc[0][1].' - '.$rowc[0][2]; ?>" infos_p="<?php echo $rowp[0][0].' - '.$rowp[0][2]; ?>" gerant="<?php echo $rowp[0][1]; ?>" commandes="<?php echo $row[5]; ?>" quantites="<?php echo $row[6]; ?>" id_comm="<?php echo $row[0]; ?>" dateL="<?php echo $row[8]; ?>" onclick="DisplayInfos(this);">
 	 		  				 <h3><?php echo "#$row[0]() -----> $row[7]"; ?></h3>
 	 		  			</div>
 	 		  <?php 
@@ -284,6 +284,16 @@
 
                   newP    = document.createElement("p");
                   content = document.createTextNode("Nom Gérant : "+arg.getAttribute('gerant'));
+                  newP.appendChild(content);
+                  document.getElementById('inf_p').appendChild(newP);
+
+                  newP    = document.createElement("p");
+                  content = document.createTextNode("Date Limite Livraison : "+arg.getAttribute('dateL'));
+                  newP.appendChild(content);
+                  document.getElementById('inf_p').appendChild(newP);
+
+                  newP    = document.createElement("p");
+                  content = document.createTextNode("-----------------------------");
                   newP.appendChild(content);
                   document.getElementById('inf_p').appendChild(newP);
 

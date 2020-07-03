@@ -2,7 +2,7 @@
 	session_start();
 	include '../bd.php';
 
-    $pdo->query("INSERT INTO pending_commands VALUES (0,'','".$_POST['id_p']."','".$_POST['id_c']."','".$_POST['zonel']."','".$_POST['nom_p']."','".$_POST['qte_p']."','".$_POST['date_c']."',0)");
+    $pdo->query("INSERT INTO pending_commands VALUES (0,'','".$_POST['id_p']."','".$_POST['id_c']."','".$_POST['zonel']."','".$_POST['nom_p']."','".$_POST['qte_p']."','".$_POST['date_c']."','".$_POST['date_liv']."',0)");
 
     $pdo->query("DELETE FROM commandes WHERE ID='".$_POST['id_command']."'")
 ?>

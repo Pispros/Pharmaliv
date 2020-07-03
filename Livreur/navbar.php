@@ -9,29 +9,17 @@
           font-family: 'Dancing Script', cursive;
           color: white;
         }
-        .power i:hover
-        {
-          background-color: black;
-          height: 50px;
-          width: 55px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-        }
-        @media(max-width: 1100px)
-        {
-          .power i
+        .power i
           {
             background-color: black;
             height: 50px;
             width: 55px;
+            padding-left: 2px; 
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
           } 
-        }
 </style>
 <div class="brand alert alert-dark success-color-dark">
       <img class="rounded-circle" src="./../img/phar.png" style="width: 60px;height: 60px;">

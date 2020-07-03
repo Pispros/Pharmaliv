@@ -65,7 +65,7 @@
 			$liste_qte       = $liste_qte.$qte_produit[$i].','     ;
 		}
 
-$pdo->query("INSERT INTO commandes VALUES (0,'".$_SESSION['id_c']."','".$liste_produit."','".$liste_qte."','".$region."','".$nom_phar."','".$choix_date.",','".date("d-m-Y h:i:s")."','".$payement."','".$filename."','".$zonel."')");
+$pdo->query("INSERT INTO commandes VALUES (0,'".$_SESSION['id_c']."','".$liste_produit."','".$liste_qte."','".$region."','".$nom_phar."','".$choix_date."','".date("d-m-Y h:i:s")."','".$payement."','".$filename."','".$zonel."')");
 		
 ?>
 <!DOCTYPE html>
