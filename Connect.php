@@ -106,6 +106,7 @@
 						$_SESSION['nom']      = $rows[0][3];
 						$_SESSION['prenom']   = $rows[0][4];
 						$_SESSION['mail']     = $rows[0][1];
+						$_SESSION['myZoneL']  = $rows[0][6];
 		?>
 						<script type="text/javascript">
 								 window.location = './Livreur/' ;

@@ -15,7 +15,7 @@
 	<title>COMMANDES</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="keywords" content="PharmaLiv">
-	<meta name="author" content="PharmaVox">
+	<meta name="author" content="ninjamer">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
@@ -78,7 +78,7 @@
             <button style="width: 250px;height: 30px;background-color: white;" id="waiting" onclick="DisplayIt('not');">En attente</button>
             <button style="width: 250px;height: 30px;background-color: white;" id="completed" onclick="DisplayIt('yup');">Complets</button>
             <i class="fas fa-sync-alt fa-2x" id="refreshi" class="view hoverable" style="margin-left:5%;cursor: poi" title="Actualiser" onclick="location.reload();"></i>
-        </div>
+      </div>
 <div id="waiting_table" style="display: none;">
 
        <div class="row d-flex justify-content-around">
@@ -174,7 +174,7 @@
                           $count2 = 1 ;
                           foreach ($rows_com as $row) 
                           {
-                            $query = $pdo->query("SELECT nom,prenom FROM users WHERE ID='".$row[1]."'");
+                            $query = $pdo->query("SELECT nom,prenom,tel FROM users WHERE ID='".$row[1]."'");
                             $rowc  = $query->fetchAll(PDO::FETCH_NUM);
 
                             $query = $pdo->query("SELECT nom,prenom,tel FROM livreur WHERE ID='".$row[6]."'");
@@ -182,7 +182,7 @@
 
                             $liste_commande = explode(',', $row[2]);
                       ?>
-                            <tr data-toggle="modal" data-target="#basicExampleModal" nom="<?php echo $rowc[0][0]; ?>" prenom="<?php echo $rowc[0][1]; ?>" commandes="<?php echo $row[2]; ?>" quantites="<?php echo $row[3]; ?>" zone="<?php echo $row[4]; ?>" id_p="<?php echo $_SESSION['id_p']; ?>" id_c="<?php echo $row[1]; ?>" date_c="<?php echo $row[5]; ?>" livreur="<?php echo $rowl[0][0].' '.$rowl[0][1]; ?>" numL="<?php echo $rowl[0][2]; ?>" onclick="DisplayInfos(this,'JustShow')">
+                            <tr data-toggle="modal" data-target="#basicExampleModal" nom="<?php echo $rowc[0][0]; ?>" prenom="<?php echo $rowc[0][1]; ?>" commandes="<?php echo $row[2]; ?>" tel="<?php echo $rowc[0][2]; ?>" quantites="<?php echo $row[3]; ?>" zone="<?php echo $row[4]; ?>" id_p="<?php echo $_SESSION['id_p']; ?>" id_c="<?php echo $row[1]; ?>" date_c="<?php echo $row[5]; ?>" livreur="<?php echo $rowl[0][0].' '.$rowl[0][1]; ?>" numL="<?php echo $rowl[0][2]; ?>" onclick="DisplayInfos(this,'JustShow')">
                                  <td>
                                       <center style="margin-top:15px;"><?php echo $count; ?></center>
                                  </td>
@@ -371,10 +371,12 @@
                   document.getElementById('infos_produit').appendChild(newP);
 
                   document.getElementById('new_btn').style.display = "none" ;
+                  document.getElementById('new_btn').disabled      = true   ;
                 }
                 else
                 {
                    document.getElementById('new_btn').style.display = "inline" ;
+                   document.getElementById('new_btn').disabled      = false    ;
                 }
               }
 
