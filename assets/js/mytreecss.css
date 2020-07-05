@@ -1,0 +1,140 @@
+		body
+		{
+			overflow-x: hidden;
+		}
+		._layout_
+		{
+			height: 100%;
+			display: flex;
+			flex-flow: row nowrap;
+		}
+		.inner_sidebar
+		{
+			width: 7%;
+			z-index: 1000;
+			background-color: #eeeeee;
+		}
+		.inner_content
+		{
+			position: relative;
+			width: 100%;
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+		}
+		.expandBtn
+		{
+			display: flex;
+			justify-content: flex-end;
+		}
+		.hideSmall
+		{
+			display: none;
+		}
+		.hideSmall2
+		{
+			display: none;
+		}
+		.nested
+		{
+			width: 50%;
+		}
+		.nested li
+		{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 2px;
+			height: 45px;
+			width: 100%;
+			margin-right: 100px;
+			cursor: pointer;
+		}
+		.nested li:nth-child(1)
+		{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 20px;
+			height: 20px;
+			height: 45px;
+			width: 100%;
+			margin-right: 100px;
+			cursor: pointer;
+		}
+		#first li:nth-child(1)
+		{
+			width: 100%;
+		}
+		.tree 
+		{
+			display: flex;
+			justify-content: center;
+			text-align: center;
+		}
+		#_display_menu
+		{
+			position: relative;
+			left: 13px;
+			cursor: pointer;
+			background-color: white;
+			width: 25px;
+			height: 25px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		@media(min-width: 768px)
+		{
+			.showSmall
+			{
+				display: inline;
+			}
+			.showSmall2
+			{
+				display: inline;
+				margin-left: 18px;
+			}
+		}
+		@media(min-width: 1200px)
+		{
+			.showSmall2
+			{
+				display: inline;
+				margin-left: 50px;
+			}
+			.showSmall
+			{
+				display: inline;
+				margin-left: 10px;
+			}
+		}
+		@media(min-width: 1260px)
+		{
+			.showSmall2
+			{
+				display: inline;
+				margin-left: 50px;
+			}
+			.showSmall
+			{
+				display: inline;
+				font-family: 'roboto',cursive;
+				font-weight: bold;
+			}
+		}
+		.myHoverLi
+		{
+			background-color: rgba(76, 175, 80, 0.7);
+			color: white;
+		}
+		.nested i
+		{
+			color: green;
+		}
+		.brand_logo
+		{
+			display: flex;
+			justify-content: center;
+			flex-flow: row nowrap;
+		}

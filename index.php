@@ -182,13 +182,13 @@
 			  <div id="signup" style="display: none;">
 			  	<br><br>
 			  	<br>
-		<form action="Connect.php?action=subscribe" method="post">
+		<form action="Inscription.php" method="post">
 			  		<div class="row d-flex justify-content-center align-items-center">
 			  			 <div class="col-auto">
 			  			 	<div class="md-form">
 			  			 		<i class="fas fa-envelope prefix"></i>
 			  			 		<label for="new_mail">Entrer votre mail ...</label>
-			  			 		<input type="email" name="mail" class="form-control" onfocus="focusInput(this.id)" onfocusout="OutfocusInput(this.id)" id="new_mail">
+			  			 		<input type="email" name="mail" class="form-control" onfocus="focusInput(this.id)" onfocusout="OutfocusInput(this.id)" id="new_mail" required="">
 			  			  	</div>
 			  			 </div>
 			  		</div>

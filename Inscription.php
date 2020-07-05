@@ -118,7 +118,7 @@
 	   			   			<div class="col-md-5 offset-md-1">
 	   			   					<div class="md-form">
 	   			   				  		<i class="fas fa-envelope prefix"></i>
-	   			   				  		<input type="text" id="mail_p" name="mail_p" class="form-control" required placeholder="VOTRE MAIL" disabled>
+	   			   				  		<input type="text" id="mail_p" name="mail_p" class="form-control" required placeholder="VOTRE MAIL" disabled value="<?php echo $_POST['mail']; ?>">
 	   			   				  		<label for="mail_p">LOGIN (OPTIONNEL)</label>
 	   			   				    </div>
 	   			   			</div>
@@ -191,7 +191,7 @@
 	   			   			<div class="col-md-5 offset-md-1">
 	   			   					<div class="md-form">
 	   			   				  		<i class="fas fa-envelope prefix"></i>
-	   			   				  		<input type="text" id="mail_c" name="mail_c" class="form-control" required placeholder="VOTRE MAIL" disabled>
+	   			   				  		<input type="text" id="mail_c" name="mail_c" class="form-control" required placeholder="VOTRE MAIL" disabled value="<?php echo $_POST['mail']; ?>">
 	   			   				  		<label for="mail_c">LOGIN (OPTIONNEL)</label>
 	   			   				    </div>
 	   			   			</div>
