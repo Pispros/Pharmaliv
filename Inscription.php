@@ -304,6 +304,7 @@
 			   			{
 			   			 	x[i].disabled = true  ;	
 			   			} 	
+			   			document.getElementById('subL').style.display = 'none' ;
 	   				}	
 	   				else
 	   				{
@@ -335,7 +336,7 @@
 			   				{
 			   					 	x[i].disabled = true ;	
 			   				}
-			   					 
+			   				document.getElementById('subL').style.display = 'none' ;
 		   				}
 		   				else
 		   				{
@@ -369,6 +370,7 @@
 			   					 	x[i].disabled = false ;	
 			   					} 
 			   					document.getElementById('subL').disabled = false ;
+			   					document.getElementById('subL').style.display = 'inline' ;
 		   					}
 		   					else
 		   					{
