@@ -72,7 +72,7 @@
 								<option selected>Profil</option>
 								<option value="client">Client</option>
 								<option value="pharmacie">Pharmacie</option>
-								<option value="pharmacie">Livreur</option>					
+								<option value="livreur">Livreur</option>					
 	   			   		 </select>
 	   			   	</div>
 	   			   </div>
@@ -140,6 +140,21 @@
 	   			   </div>
 
 	   		</form>
+
+	   		<form action="f_subscribe.php?for=livreur" method="post">
+	   			   <div id="livreur_f" style="display: none;">
+	  					
+	  					
+	   			   		 <div class="row d-flex justify-content-center">
+		   			   	 <div class="col-auto">
+		   			   	 		<button type="submit" id="subL" class="btn aqua-gradient" disabled><i class="fas fa-plus"></i>&nbsp;&nbsp;Inscription</button>
+		   			   	 </div>
+		   			    </div>
+
+	   			   </div>
+
+	   		</form>
+
 
 	   		<form action="f_subscribe.php?for=client" method="post">
 	   			   <div id="client_f" style="display: none;">
@@ -281,7 +296,14 @@
 	   					for (let i = x.length - 1; i >= 0; i--) 
 	   					{
 	   					 	x[i].disabled = false ;	
-	   					} 	
+	   					} 
+
+	   					x = document.getElementById('livreur_f').querySelectorAll("input");
+
+			   			for (let i = x.length - 1; i >= 0; i--) 
+			   			{
+			   			 	x[i].disabled = true  ;	
+			   			} 	
 	   				}	
 	   				else
 	   				{
@@ -306,13 +328,55 @@
 		   					{
 		   					 	x[i].disabled = false ;	
 		   					} 
+
+		   					x = document.getElementById('livreur_f').querySelectorAll("input");
+
+			   				for (let i = x.length - 1; i >= 0; i--) 
+			   				{
+			   					 	x[i].disabled = true ;	
+			   				}
+			   					 
 		   				}
 		   				else
 		   				{
-		   					document.querySelector("button[type=submit]").style.display = 'none'    ;
-		   					document.querySelector("button[type=submit]").disabled      = true      ;
-		   					document.getElementById('client_f').style.display           = 'none'    ;
-		   					document.getElementById('pharmacie_f').style.display        = 'none'    ;
+		   					if (profil==='livreur') 
+		   					{
+		   						document.getElementById('client_f').style.display           = 'none'    ;
+			   					document.getElementById('pharmacie_f').style.display        = 'none'    ;
+			   					document.getElementById('livreur_f').style.display          = 'inline'  ;
+			   					document.querySelector("button[type=submit]").style.display = 'inline'  ;
+			   					document.querySelector("button[type=submit]").disabled      = false     ;
+
+			   					let x = document.getElementById('client_f').querySelectorAll("input")   ;
+
+			   					for (let i = x.length - 1; i >= 0; i--) 
+			   					{
+			   					 	x[i].disabled = true ; 	
+			   					} 	 
+
+
+			   					x = document.getElementById('pharmacie_f').querySelectorAll("input");
+
+			   					for (let i = x.length - 1; i >= 0; i--) 
+			   					{
+			   					 	x[i].disabled = true ;	
+			   					} 
+
+			   					x = document.getElementById('livreur_f').querySelectorAll("input");
+
+			   					for (let i = x.length - 1; i >= 0; i--) 
+			   					{
+			   					 	x[i].disabled = false ;	
+			   					} 
+			   					document.getElementById('subL').disabled = false ;
+		   					}
+		   					else
+		   					{
+		   						document.querySelector("button[type=submit]").style.display = 'none'    ;
+			   					document.querySelector("button[type=submit]").disabled      = true      ;
+			   					document.getElementById('client_f').style.display           = 'none'    ;
+			   					document.getElementById('pharmacie_f').style.display        = 'none'    ;
+		   					}
 		   				}
 	   				}
 

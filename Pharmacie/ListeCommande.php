@@ -2,11 +2,11 @@
 	session_start() ;
 	include '../bd.php';
 
-	$query    = $pdo->query("SELECT ID,ID_client,nom_produit,quantite_produit,zone_livraison,date_commande,date_livraison FROM commandes WHERE ID_pharmacie='".$_SESSION['id_p']."' ORDER BY ID ASC") ;
+	$query    = $pdo->query("SELECT ID,ID_client,nom_produit,quantite_produit,zone_livraison,date_commande,date_livraison,photo_ordonnance FROM commandes WHERE ID_pharmacie='".$_SESSION['id_p']."' ORDER BY ID ASC") ;
 	$rows_new = $query->fetchAll(PDO::FETCH_NUM);
   $notif = $query->rowCount();
 
-	$query = $pdo->query("SELECT ID,ID_client,nom_produit,quantite_produit,zone_livraison,date_commande,ID_livreur,date_livraison FROM pending_commands WHERE ID_pharmacie='".$_SESSION['id_p']."' AND status=1 ORDER BY ID DESC") ;
+	$query = $pdo->query("SELECT ID,ID_client,nom_produit,quantite_produit,zone_livraison,date_commande,ID_livreur,date_livraison,photo_ordonnance FROM pending_commands WHERE ID_pharmacie='".$_SESSION['id_p']."' AND status=1 ORDER BY ID DESC") ;
 	$rows_com = $query->fetchAll(PDO::FETCH_NUM);
 ?>
 <!DOCTYPE html>
@@ -77,7 +77,7 @@
 	   	<div style="display: flex;justify-content: center;">
             <button style="width: 250px;height: 30px;background-color: white;" id="waiting" onclick="DisplayIt('not');">En attente</button>
             <button style="width: 250px;height: 30px;background-color: white;" id="completed" onclick="DisplayIt('yup');">Complets</button>
-            <i class="fas fa-sync-alt fa-2x" id="refreshi" class="view hoverable" style="margin-left:5%;cursor: poi" title="Actualiser" onclick="location.reload();"></i>
+            <i class="fas fa-sync-alt fa-2x" id="refreshi" class="view hoverable" style="margin-left:5%;cursor: pointer" title="Actualiser" onclick="location.reload();"></i>
       </div>
 <div id="waiting_table" style="display: none;">
 
@@ -116,7 +116,7 @@
 
                             $liste_commande = explode(',', $row[2]);
                       ?>
-                            <tr data-toggle="modal" data-target="#basicExampleModal" id="<?php echo $row[0]; ?>" nom="<?php echo $rowc[0][0]; ?>" prenom="<?php echo $rowc[0][1]; ?>" tel="<?php echo $rowc[0][2]; ?>" commandes="<?php echo $row[2]; ?>" quantites="<?php echo $row[3]; ?>" zone="<?php echo $row[4]; ?>" id_p="<?php echo $_SESSION['id_p']; ?>" id_c="<?php echo $row[1]; ?>" date_c="<?php echo $row[5]; ?>" dateL="<?php echo $row[6]; ?>" onclick="DisplayInfos(this,'magicalModal')">
+                            <tr data-toggle="modal" data-target="#basicExampleModal" id="<?php echo $row[0]; ?>" nom="<?php echo $rowc[0][0]; ?>" prenom="<?php echo $rowc[0][1]; ?>" tel="<?php echo $rowc[0][2]; ?>" commandes="<?php echo $row[2]; ?>" quantites="<?php echo $row[3]; ?>" zone="<?php echo $row[4]; ?>" id_p="<?php echo $_SESSION['id_p']; ?>" id_c="<?php echo $row[1]; ?>" date_c="<?php echo $row[5]; ?>" dateL="<?php echo $row[6]; ?>" ORD="<?php echo $row[7]; ?>" onclick="DisplayInfos(this,'magicalModal')">
                                  <td>
                                       <center style="margin-top:15px;"><?php echo $count; ?></center>
                                  </td>
@@ -182,7 +182,7 @@
 
                             $liste_commande = explode(',', $row[2]);
                       ?>
-                            <tr data-toggle="modal" data-target="#basicExampleModal" nom="<?php echo $rowc[0][0]; ?>" prenom="<?php echo $rowc[0][1]; ?>" commandes="<?php echo $row[2]; ?>" tel="<?php echo $rowc[0][2]; ?>" quantites="<?php echo $row[3]; ?>" zone="<?php echo $row[4]; ?>" id_p="<?php echo $_SESSION['id_p']; ?>" id_c="<?php echo $row[1]; ?>" date_c="<?php echo $row[5]; ?>" livreur="<?php echo $rowl[0][0].' '.$rowl[0][1]; ?>" numL="<?php echo $rowl[0][2]; ?>" dateL="<?php echo $row[7]; ?>" onclick="DisplayInfos(this,'JustShow')">
+                            <tr data-toggle="modal" data-target="#basicExampleModal" nom="<?php echo $rowc[0][0]; ?>" prenom="<?php echo $rowc[0][1]; ?>" commandes="<?php echo $row[2]; ?>" tel="<?php echo $rowc[0][2]; ?>" quantites="<?php echo $row[3]; ?>" zone="<?php echo $row[4]; ?>" id_p="<?php echo $_SESSION['id_p']; ?>" id_c="<?php echo $row[1]; ?>" date_c="<?php echo $row[5]; ?>" livreur="<?php echo $rowl[0][0].' '.$rowl[0][1]; ?>" numL="<?php echo $rowl[0][2]; ?>" dateL="<?php echo $row[7]; ?>" ORD="<?php echo $row[8]; ?>" onclick="DisplayInfos(this,'JustShow')">
                                  <td>
                                       <center style="margin-top:15px;"><?php echo $count; ?></center>
                                  </td>
@@ -240,6 +240,7 @@
         <input type="hidden" name="date_c"     id="date_c"  >
         <input type="hidden" name="id_command" id="id_com"  >
         <input type="hidden" name="date_liv"   id="date_liv">
+        <input type="hidden" name="photo_o"    id="photo_o" >
         <button type="button" class="btn btn-success" data-dismiss="modal">FERMER</button>
         <button  type="submit" class="btn blue-gradient" id="new_btn">Commissionner un Livreur</button>
       </div>
@@ -341,6 +342,19 @@
                   newP.appendChild(content);
                   document.getElementById('telephoneC').appendChild(newP);
 
+                  newP     = document.createElement("p");
+                  content0 = document.createElement("a");
+                  content  = document.createElement("button");
+                  content0.setAttribute("target","_blank");
+                  content0.setAttribute("href","../assets/Uploaded/"+arg.getAttribute('ORD'));
+                  content.setAttribute("class","btn aqua-gradient");
+                  content.setAttribute("type","button");
+
+                  content.appendChild(document.createTextNode("Ordonnance"));
+                  content0.appendChild(content);
+                  newP.appendChild(content0);
+                  document.getElementById('infos_produit').appendChild(newP);
+
                   newP    = document.createElement("p");
                   content = document.createTextNode("-----------------------------");
                   newP.appendChild(content);
@@ -368,6 +382,7 @@
                 document.getElementById('date_c').value   = arg.getAttribute('date_c')   ;
                 document.getElementById('id_com').value   = arg.id                       ;
                 document.getElementById('date_liv').value = arg.getAttribute('dateL')    ;
+                document.getElementById('photo_o').value  = arg.getAttribute('ORD')      ;
 
                 if (magicalModal==="JustShow") 
                 {

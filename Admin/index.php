@@ -21,7 +21,7 @@
 </head>
 <body>
 		<script type="text/javascript">
-				 if (screen.width>=768) 
+				 if (screen.width>=1110) 
 				 {
 				 	window.location = 'md-layout.php';
 				 }

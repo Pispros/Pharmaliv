@@ -24,7 +24,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/js/mdb.min.js"></script>
 </head>
 <body>
-	<div class="row" style="position: fixed;bottom: 2%;right: 50%;">
+	<div class="row" style="position: fixed;bottom: 55%;right: 50%;">
          <div class="col-auto">
                <h1><a href=""><i class="fas fa-plus-circle" title="Ajouter un utilisateur" style="color: green;"></i></a></h1>
          </div>

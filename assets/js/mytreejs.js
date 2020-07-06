@@ -1,7 +1,7 @@
 $(function() 
 {
 	let toggle_menu    = 0 ;
-	let already_hidden = 0 ;
+	let already_hidden = 0 ; 
 	$("#_display_menu").click(function() 
 	{	
       document.getElementById('logo').style.removeProperty('display');
@@ -27,7 +27,15 @@ $(function()
 		x = document.querySelectorAll('.hideSmall2');
 		for (var i = x.length - 1; i >= 0; i--) 
 		{
-			x[i].classList.add('showSmall2') ;
+			x[i].classList.remove('hideSmall2') ;
+			x[i].classList.add('showSmall2')    ;
+		}
+
+		x = document.querySelectorAll('.decoy');
+		for (var i = x.length - 1; i >= 0; i--) 
+		{
+			x[i].style.removeProperty('display')  ;
+			x[i].className  = 'decoy rounded-circle backG' ;
 		}
 			
 		toggle_menu = 1 ;
@@ -78,6 +86,13 @@ $(function()
 			x[i].classList.add('hideSmall2')    ;
 		}
 
+		x = document.querySelectorAll('.decoy');
+		for (var i = x.length - 1; i >= 0; i--) 
+		{
+			x[i].style.display = 'none' ;
+			x[i].className  = 'decoy'   ;
+		}
+
 		toggle_menu    = 0 ;
 		already_hidden = 1 ;
 	  }
@@ -97,7 +112,7 @@ $(function()
 
 function ShowTree(arg) 
 {
-	if (!arg.classList.contains('down')) 
+	if (!arg.classList.contains('fa-angle-down')) 
 	{
 		arg.className = 'fas fa-angle-down rotate showSmall2' ;
 	}
