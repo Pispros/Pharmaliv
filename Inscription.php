@@ -145,7 +145,7 @@
 	   			   <div id="livreur_f" style="display: none;">
 	  					
 	  					
-	   			   		 <div class="row d-flex justify-content-center">
+	   			   		<div class="row d-flex justify-content-center">
 		   			   	 <div class="col-auto">
 		   			   	 		<button type="submit" id="subL" class="btn aqua-gradient" disabled><i class="fas fa-plus"></i>&nbsp;&nbsp;Inscription</button>
 		   			   	 </div>

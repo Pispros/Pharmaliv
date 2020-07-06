@@ -50,7 +50,7 @@
 		$pdo->query("INSERT INTO pharmacie VALUES (0,'".$nom_p."','".$nom_g."','".$mail_p."','".$adresse_p."','".$telephone_p."','".password_hash($pwd_p, PASSWORD_DEFAULT)."')");
 ?>
 			<script type="text/javascript">
-					let account_type = "Phar";
+					let account_type = "new";
 					localStorage.setItem('acc',account_type);
 					window.location = './';
 			</script>
@@ -131,7 +131,20 @@
 		$pdo->query("INSERT INTO users VALUES (0,'".$mail_c."','".password_hash($pwd, PASSWORD_DEFAULT)."','','".$nom_c."','".$prenom_c."','".$telephone_c."','".$DatedeNaissance_c."','".$sexe_c."','".$statut."','".$infcompl_c."')");
 ?>
 			<script type="text/javascript">
-					let account_type = "Client";
+					let account_type = "new";
+					localStorage.setItem('acc',account_type);
+					window.location = './';
+			</script>
+<?php
+	}
+
+	if ($type=='livreur') 
+	{
+
+			
+?>
+			<script type="text/javascript">
+					let account_type = "new";
 					localStorage.setItem('acc',account_type);
 					window.location = './';
 			</script>
